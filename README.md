@@ -108,7 +108,7 @@ It features a custom **Native Diesel GUI Engine** rendering sleek dark-themed UI
 
 | Hotkey | Action |
 | :--- | :--- |
-| **`F4`** (Default) | Open / Close NiceTrainer In-Game Menu |
+| **`F1`** (Default) | Open / Close NiceTrainer In-Game Menu |
 | **Mouse Left Click** | Interact / Toggle / Adjust Sliders / Open Modals |
 | **Mouse Hover** | Display Context-Sensitive Feature Tooltips |
 | **Custom Keybinds** | Click **"BIND"** next to any feature in the menu and press your desired key! |
