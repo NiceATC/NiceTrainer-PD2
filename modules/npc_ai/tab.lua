@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_NpcAiTab", function(trainer)
+    trainer:CreateTab("NPC AI", { show_in = "heist" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

@@ -1,0 +1,29 @@
+<materials version="3" group="civ_male_dog_abuser_1">
+    <material name="mtr_head" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_head_nm"/>
+        <diffuse_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_head_df"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_head_lod1" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_head_nm"/>
+        <diffuse_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_head_df"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <material name="mtr_body" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_nm"/>
+        <diffuse_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_df"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_body_lod1" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_nm"/>
+        <diffuse_texture file="units/payday2/characters/shared_textures/civ_male_dog_abuser_1_df"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    
+    <material name="shadow_caster" render_template="shadow_caster_only:SKINNED_1WEIGHT" version="2"/>
+</materials>

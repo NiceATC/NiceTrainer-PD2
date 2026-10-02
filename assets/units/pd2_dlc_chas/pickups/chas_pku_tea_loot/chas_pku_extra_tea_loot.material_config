@@ -1,0 +1,33 @@
+<materials version="3" group="chas_pku_keychain_forklift">
+    <material name="lambert1" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" decal_material="wood" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_maritime_paintings/lxy_prop_maritime_paintings_b_df"/>
+        <bump_normal_texture file="units/pd2_dlc_fish/lxy_prop_maritime_paintings/lxy_prop_maritime_paintings_a_nm"/>
+    </material>
+    <material name="mat_mus_prop_exhibit_painting_thing_lod1" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" decal_material="wood" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_maritime_paintings/lxy_prop_maritime_paintings_b_df" mip="5"/>
+        <bump_normal_texture file="units/pd2_dlc_fish/lxy_prop_maritime_paintings/lxy_prop_maritime_paintings_a_nm" mip="5"/>
+    </material>
+    <material name="glass" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE:NORMALMAP" decal_material="glass_breakable" version="2">
+        <variable type="vector3" name="fresnel_settings" value="0 0.79999995231628 0.39999997615814"/>
+        <opacity_texture file="units/pd2_indiana/props/mus_prop_exhibit_display_set/glass_clear_default_op"/>
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_exhibit_display_set/glass_clear_default_df"/>
+        <bump_normal_texture file="units/pd2_indiana/props/mus_prop_exhibit_display_set/glass_clear_default_nm"/>
+        <reflection_texture type="cubemap" file="environments/cubemaps/cubemap_electionday_df"/>
+    </material>
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" name="mat_teaset" version="2">
+        <diffuse_texture file="units/pd2_dlc_chas/pickups/chas_pku_tea_loot/jade_teaset_df"/>
+        <bump_normal_texture file="units/pd2_dlc_chas/pickups/chas_pku_tea_loot/jade_teaset_nm"/>
+        <material_texture file="units/pd2_dlc_chas/pickups/chas_pku_tea_loot/jade_teaset_gsma"/>
+        <reflection_texture type="cubemap" file="environments/cubemaps/cubemap_electionday_df"/>
+        <variable name="contour_color" value="1 1 1" type="vector3"/>
+        <variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" name="mat_tea_set" version="2">
+        <diffuse_texture file="units/pd2_dlc_aru/props/aru_prop_tea_set/aru_prop_tea_set_df"/>
+        <bump_normal_texture file="units/pd2_dlc_aru/props/aru_prop_tea_set/aru_prop_tea_set_nm"/>
+        <material_texture file="units/pd2_dlc_aru/props/aru_prop_tea_set/aru_prop_tea_set_gsma"/>
+        <reflection_texture type="cubemap" file="environments/cubemaps/cubemap_electionday_df"/>
+        <variable name="contour_color" value="1 1 1" type="vector3"/>
+        <variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

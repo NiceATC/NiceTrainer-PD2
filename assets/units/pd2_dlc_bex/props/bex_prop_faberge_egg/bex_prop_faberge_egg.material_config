@@ -1,0 +1,117 @@
+<materials version="3">
+    <!-- //////// YELLOW EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_df"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// BLUE EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_blue" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_blue_df"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// GREEN EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_green" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_green_df"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// RED EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_red" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_red_df"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// WHITE EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_white" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_white_df"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////LOD  -->
+    <!-- //////// YELLOW EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_lod" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm" mip="4"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma" mip="4"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// BLUE EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_blue_lod" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_blue_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm" mip="4"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma" mip="4"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// GREEN EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_green_lod" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_green_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm" mip="4"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma" mip="4"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// RED EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_red_lod" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_red_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm" mip="4"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma" mip="4"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- //////// WHITE EGG -->
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_faberge_white_lod" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_white_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_nm" mip="4"/>
+        <material_texture file="units/pd2_dlc_bex/props/bex_prop_faberge_egg/bex_prop_faberge_egg_gsma" mip="4"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <!-- Outline materials -->
+    <material name="mat_outline" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable value="1.0 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+    <material name="mat_outline_lod" render_template="generic:ALPHA_MASKED:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable value="1.0 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+</materials>
+

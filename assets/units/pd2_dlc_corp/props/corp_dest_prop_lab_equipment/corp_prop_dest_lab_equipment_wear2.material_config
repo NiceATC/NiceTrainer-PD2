@@ -1,0 +1,25 @@
+<materials version="3" group="corp_lab_equipment">
+    <material render_template="generic:DIFFUSE_TEXTURE" name="mat_whitebox" version="2">
+        <diffuse_texture file="units/payday2/architecture/mkp/mkp_grid_df"/>
+    </material>
+    <material unique="true" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" name="mat_outline" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable type="vector3" name="contour_color" value="1.0 0.5 0"/>
+        <variable type="scalar" name="contour_opacity" value="1"/>
+        <opacity_texture file="units/transparent_op"/>
+        <variable type="scalar" name="contour_distance" value="300"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" name="mtr_scope" version="2">
+        <diffuse_texture file="units/pd2_dlc_corp/props/corp_dest_prop_lab_equipment/microscope_w2_df"/>
+        <bump_normal_texture file="units/pd2_dlc_corp/props/corp_dest_prop_lab_equipment/microscope_nm"/>
+        <variable type="scalar" name="glossiness_control" value="0.22500001068693"/>
+		<variable name="contour_color" value="1 0 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material decal_material="glass_breakable" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" name="mtr_glass" version="2">
+        <variable type="vector3" name="fresnel_settings" value="0 0 1"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_default_op"/>
+        <diffuse_texture file="units/payday2/glass/glass_clear_default_df"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+    </material>
+</materials>

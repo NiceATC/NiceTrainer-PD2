@@ -1,0 +1,46 @@
+<materials version="3">
+    <material name="stn_vehicle_truck" src="GLOBAL" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP:VERTEX_COLOR" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_jolly/vehicles/lxa_vehicle_truck_vlad/lxa_vehicle_truck_vlad_df"/>
+        <bump_normal_texture file="units/vehicles/animated_cars/vehicle_slaughterhouse_ambush_event/textures/money_truck_nm"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material version="2" decal_material="sheet_metal" name="undercarriage" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true">
+        <diffuse_texture file="units/vehicles/prisoner_truck/undercarriage_df"/>
+        <bump_normal_texture file="units/vehicles/prisoner_truck/undercarriage_nm"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material src="GLOBAL" version="2" decal_material="metal" render_template="decal:DIFFUSE_TEXTURE" name="logo">
+        <diffuse_texture file="units/pd2_dlc_jolly/vehicles/lxa_vehicle_truck_vlad/lxa_vehicle_truck_vlad_logo_df"/>
+    </material>
+    <material name="glass_breakable" decal_material="glass_breakable" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" version="2">
+        <variable value="0 1 0.59999996423721" type="vector3" name="fresnel_settings"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_vehicle_dark_op"/>
+        <diffuse_texture file="units/payday2/glass/glass_clear_vehicle_dark_b_df"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+    </material>
+    <material version="2" decal_material="glass_breakable" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE:NORMALMAP" name="glass_shattered">
+        <variable value="2 1 0.59999996423721" type="vector3" name="fresnel_settings"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_vehicle_dark_op"/>
+        <diffuse_texture file="units/vehicles/window/glass_shattered_dark_df"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+        <bump_normal_texture file="units/vehicles/window/glass_shattered_nm"/>
+    </material>
+	<material name="mat_interior" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc1/vehicles/str_vehicle_truck_gensec_transport/ind_vehicle_truck_moneytransport_interior_df" />
+		<bump_normal_texture file="units/pd2_dlc1/vehicles/str_vehicle_truck_gensec_transport/ind_vehicle_truck_moneytransport_interior_nm" />
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mat_floor" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc1/vehicles/str_vehicle_truck_gensec_transport/ind_vehicle_truck_interior_floor_df" />
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+    <material name="shadow_caster" render_template="shadow_caster_only" version="2"/>
+</materials>
+
+
+

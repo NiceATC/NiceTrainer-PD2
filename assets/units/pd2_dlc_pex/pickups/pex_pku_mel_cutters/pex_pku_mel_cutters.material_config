@@ -1,0 +1,14 @@
+<materials version="3" group="pex_cutters">
+    <material name="mtr_cutter_outline" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable value="1 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+    <material name="mtr_cutter" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_pex/pickups/pex_pku_mel_cutters/cutters_df"/>
+        <bump_normal_texture file="units/pd2_dlc_pex/pickups/pex_pku_mel_cutters/cutters_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

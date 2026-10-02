@@ -1,0 +1,13 @@
+<materials version="3">
+	<material name="mat_chw_prop_wooden_crate" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_chew/props/chw_prop_wooden_crate/chw_prop_wooden_crate_df" />
+		<bump_normal_texture file="units/pd2_dlc_chew/props/chw_prop_wooden_crate/chw_prop_wooden_crate_nm" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mat_chw_prop_wooden_crate_broken" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+		<diffuse_texture file="units/pd2_dlc_chew/props/chw_prop_wooden_crate/chw_prop_wooden_crate_broken_df" />
+		<bump_normal_texture file="units/pd2_dlc_chew/props/chw_prop_wooden_crate/chw_prop_wooden_crate_nm" />
+	</material>
+	<material name="shadow_caster" render_template="shadow_caster_only" version="2" />
+</materials>

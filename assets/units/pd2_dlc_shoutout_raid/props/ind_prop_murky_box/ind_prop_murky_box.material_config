@@ -1,0 +1,22 @@
+<materials version="3">
+    <material name="mat_box" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_shoutout_raid/props/ind_prop_murky_box/ind_prop_murky_box_df"/>
+        <bump_normal_texture file="units/pd2_dlc_shoutout_raid/props/ind_prop_murky_box/ind_prop_murky_box_nm"/>
+        <reflection_texture type="cubemap" file="units/payday2/cubemaps/cubemap_steel"/>
+        <variable value="1 0 2" type="vector3" name="environment_settings"/>
+		<variable value="1 1 1" type="vector3" name="contour_color"/>
+		<variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+    <material name="mat_foam" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_shoutout_raid/props/ind_prop_murky_box/ind_prop_murky_box_foam_df"/>
+        <bump_normal_texture file="units/pd2_dlc_shoutout_raid/props/ind_prop_murky_box/ind_prop_murky_box_foam_nm"/>
+		<variable value="1 1 1" type="vector3" name="contour_color"/>
+		<variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+    <material name="mat_piece" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_shoutout_raid/props/ind_prop_murky_box/ind_prop_murky_box_piece_df"/>
+        <bump_normal_texture file="units/pd2_dlc_shoutout_raid/props/ind_prop_murky_box/ind_prop_murky_box_piece_nm"/>
+		<variable value="1 1 1" type="vector3" name="contour_color"/>
+		<variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+</materials>

@@ -1,0 +1,9 @@
+<materials version="3">
+	<material name="mat_spider" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:SKINNED_3WEIGHTS" unique="true" version="2">
+		<diffuse_texture		file="units/pd2_dlc_nails/props/nls_prop_methlab_spider/nls_prop_methlab_spider_df" />
+		<bump_normal_texture	file="units/pd2_dlc_nails/props/nls_prop_methlab_spider/nls_prop_methlab_spider_nm" />
+		<variable name="contour_color" value="1 0 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="shadow_caster" render_template="shadow_caster_only:SKINNED_1WEIGHT" version="2"/>
+</materials>

@@ -1,0 +1,17 @@
+<materials version="3">
+    <material render_template="decal:DIFFUSE_TEXTURE" name="mtr_clues" version="2">
+        <diffuse_texture file="units/pd2_dlc_fex/equipment/fex_interactable_mayan_door/fex_interactable_folder_clues_df"/>
+    </material>
+    <material unique="true" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" name="mtr_outline" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable type="vector3" name="contour_color" value="0 1 0"/>
+        <variable type="scalar" name="contour_opacity" value="1"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" name="mat_binder" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_fex/equipment/fex_interactable_mayan_door/fex_interactable_clue_book_df"/>
+        <bump_normal_texture file="units/pd2_dlc_fex/equipment/fex_interactable_mayan_door/fex_interactable_clue_book_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

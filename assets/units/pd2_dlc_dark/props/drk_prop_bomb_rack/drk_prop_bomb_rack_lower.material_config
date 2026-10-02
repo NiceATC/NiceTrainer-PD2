@@ -1,0 +1,19 @@
+<materials version="3">
+    <material name="mat_drk_prop_bomb_rack" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_prop_bomb_rack/drk_prop_bome_rack_df"/>
+        <bump_normal_texture file="units/pd2_dlc_dark/props/drk_prop_bomb_rack/drk_prop_bome_rack_nm"/>
+    </material>
+    <material name="mat_bomb_parts" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GLOSS_BLURS_CUBEMAP:GLOSS_CONTROL_VALUE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_interactable_case_bomb_parts/drk_prop_bomb_parts_df"/>
+        <bump_normal_texture file="units/pd2_dlc_dark/props/drk_interactable_case_bomb_parts/drk_prop_bomb_parts_nm"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <variable value="0.27100002765656" type="scalar" name="glossiness_control"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="shadow_caster" render_template="shadow_caster_only" version="2"/>
+    <material version="2" render_template="effect:BLEND_MUL:DIFFUSE0_TEXTURE" name="mat_shadow_rack_lower">
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_prop_bomb_rack/drk_prop_bomb_shadow_lower_rack_df"/>
+        <variable value="reddot" type="scalar" name="intensity"/>
+    </material>
+</materials>

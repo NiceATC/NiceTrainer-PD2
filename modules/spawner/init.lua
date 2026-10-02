@@ -1,0 +1,5 @@
+dofile(NiceTrainer.ModPath .. "modules/spawner/tab.lua")
+dofile(NiceTrainer.ModPath .. "modules/spawner/actions/entities.lua")
+dofile(NiceTrainer.ModPath .. "modules/spawner/actions/loot.lua")
+dofile(NiceTrainer.ModPath .. "modules/spawner/actions/equipment.lua")
+dofile(NiceTrainer.ModPath .. "modules/spawner/actions/vehicles.lua")

@@ -1,0 +1,6 @@
+dofile(NiceTrainer.ModPath .. "modules/npc_ai/tab.lua")
+dofile(NiceTrainer.ModPath .. "modules/npc_ai/actions/alarm.lua")
+dofile(NiceTrainer.ModPath .. "modules/npc_ai/actions/enemies.lua")
+dofile(NiceTrainer.ModPath .. "modules/npc_ai/actions/civilians.lua")
+dofile(NiceTrainer.ModPath .. "modules/npc_ai/actions/conversion.lua")
+dofile(NiceTrainer.ModPath .. "modules/npc_ai/actions/nav_pathing.lua")

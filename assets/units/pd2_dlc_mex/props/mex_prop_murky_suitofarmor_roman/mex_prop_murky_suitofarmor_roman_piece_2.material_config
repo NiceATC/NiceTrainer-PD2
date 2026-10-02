@@ -1,0 +1,20 @@
+<materials version="3">
+	
+	<material name="mtr_helmet" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+		<diffuse_texture file="units/pd2_dlc_mex/props/mex_prop_murky_suitofarmor_roman/mex_prop_murky_suitofarmor_helmet_df" />
+		<bump_normal_texture file="units/pd2_dlc_mex/props/mex_prop_murky_suitofarmor_roman/mex_prop_murky_suitofarmor_helmet_nm" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+
+	<material name="mtr_mask" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+		<diffuse_texture file="units/pd2_dlc_mex/props/mex_prop_murky_suitofarmor_roman/mex_prop_murky_suitofarmor_mask_df" />
+		<bump_normal_texture file="units/pd2_dlc_mex/props/mex_prop_murky_suitofarmor_roman/mex_prop_murky_suitofarmor_mask_nm" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+    <material name="mat_mullplan" render_template="decal:DIFFUSE_TEXTURE" version="2">
+        <diffuse_texture file="units/pd2_dlc_mex/props/mex_prop_runway_gate_rail/mex_mullplan_circle_df"/>
+    </material>
+
+</materials>

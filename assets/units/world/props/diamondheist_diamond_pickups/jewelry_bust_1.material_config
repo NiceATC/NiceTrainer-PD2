@@ -1,0 +1,51 @@
+<materials version="3">
+    <material name="jewelry3" render_template="opacity:CONTOUR:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE:OPACITY_CONTROLLER" unique="true" version="2">
+        <opacity_texture file="units/world/props/diamondheist_diamond_pickups/gems_op"/>
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/jewelry_df"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+        <variable value="0.55000001192093 0.099999994039536 0.39999997615814" type="vector3" name="fresnel_settings"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="jewelry" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/jewelry_df"/>
+        <bump_normal_texture file="units/world/props/diamondheist_diamond_pickups/jewelry_nm"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+        <variable value="1 0 0.20000000298023" type="vector3" name="environment_settings"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="jewelry2" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gemtile_df"/>
+        <bump_normal_texture file="units/world/props/diamondheist_diamond_pickups/gemtile_nm"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+        <variable value="1.4500000476837 0.074000000953674 0.40000000596046" type="vector3" name="environment_settings"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="bust" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/bust_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="glow" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable value="1.0 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+    <material version="2" decal_material="glass_breakable" name="jewelry3_inside" unique="true" render_template="opacity:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <opacity_texture file="units/world/props/diamondheist_diamond_pickups/gems_op"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material version="2" decal_material="glass_unbreakable" name="jewelry3_shimmer" unique="true" render_template="effect:CONTOUR:BLEND_ADD:DIFFUSE0_TEXTURE:VIEW_ANGLE_FALLOFF_OP">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <variable value="identity" type="scalar" name="intensity"/>
+        <variable value="26" type="scalar" name="falloff_exp"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

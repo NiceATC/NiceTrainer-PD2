@@ -1,0 +1,5 @@
+dofile(NiceTrainer.ModPath .. "modules/world/tab.lua")
+dofile(NiceTrainer.ModPath .. "modules/world/actions/interactive.lua")
+dofile(NiceTrainer.ModPath .. "modules/world/actions/invisible_walls.lua")
+dofile(NiceTrainer.ModPath .. "modules/world/actions/motion_paths.lua")
+dofile(NiceTrainer.ModPath .. "modules/world/actions/killzones.lua")

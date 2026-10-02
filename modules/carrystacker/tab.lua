@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_CarryStacker", function(trainer)
+    trainer:CreateTab("CarryStacker", { show_in = "game" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

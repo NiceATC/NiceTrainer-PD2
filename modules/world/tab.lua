@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_WorldTab", function(trainer)
+    trainer:CreateTab("World", { show_in = "game" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

@@ -1,0 +1,26 @@
+<materials version="3">
+	<material name="mat_evidence_watchdogs" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_evidence_board/mcm_prop_evidence_watchdogs_df" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	
+	<material name="mat_evidence_crimenet" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_evidence_board/mcm_prop_evidence_crimenet_df" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	
+	<material name="mat_evidence_hoxton" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_evidence_board/mcm_prop_evidence_hoxton_df" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+
+	<material name="mat_evidenceboard" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_evidence_board/mcm_prop_evidence_board_df" />
+		<bump_normal_texture file="units/pd2_mcmansion/props/mcm_prop_evidence_board/mcm_prop_evidence_board_nm" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+</materials>

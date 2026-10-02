@@ -1,0 +1,7 @@
+<materials version="3">
+    <material name="mtr_painting" version="2" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE" unique="true">
+    <diffuse_texture file="units/payday2/props/shared_textures/com_int_gallery_wall_painting_medium_darius_7_df"/>
+		<variable value="0 0 1" type="vector3" name="contour_color"/>
+		<variable value="0" type="scalar" name="contour_opacity"/>
+    </material>
+</materials>

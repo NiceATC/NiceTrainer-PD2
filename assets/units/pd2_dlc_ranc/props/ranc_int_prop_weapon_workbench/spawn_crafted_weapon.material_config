@@ -1,0 +1,21 @@
+<materials version="3">
+    <material name="weapon" version="2" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP:VERTEX_COLOR">
+        <bump_normal_texture file="units/weapons/texture/third_person_nm"/>
+        <diffuse_texture file="units/weapons/texture/third_person_df"/>
+    </material>
+    <material name="weapon_ak47" version="2" unique="true" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP">
+        <diffuse_texture file="units/pd2_dlc_ranc/equipment/ranc_int_weapon_box_2x1x1m/ak12_atlas_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/equipment/ranc_int_weapon_box_2x1x1m/ak12_atlas_nm"/>
+        <reflection_texture type="cubemap" file="environments/cubemaps/cubemap_street_01"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" unique="true" name="mtr_ak12" version="2">
+        <diffuse_texture file="units/pd2_dlc_ranc/equipment/ranc_int_weapon_box_2x1x1m/ak12_atlas_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/equipment/ranc_int_weapon_box_2x1x1m/ak12_atlas_nm"/>
+        <reflection_texture type="cubemap" file="environments/cubemaps/cubemap_street_01"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="weapon_lod1" version="2" render_template="generic:VERTEX_COLOR"/>
+</materials>

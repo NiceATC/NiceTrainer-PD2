@@ -1,0 +1,28 @@
+<materials version="3">
+    <material version="2" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" decal_material="glass_breakable" name="mat_jarofdirtglass">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_e_df"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_small_op"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <variable value="2 1 0.6" name="fresnel_settings" type="vector3"/>
+    </material>
+    <material version="2" name="mat_auction_tag" render_template="generic:ALIGN_NORMAL_WORLD_Z:ALPHA_MASKED:DIFFUSE_TEXTURE:DOUBLE_SIDED:EXTERNAL_ALPHA_REF">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/auction_tag_no057_df"/>
+        <variable value="0" name="alpha_ref" type="scalar"/>
+    </material>
+    <material version="2" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" decal_material="glass_breakable" name="mat_glass">
+        <diffuse_texture file="units/payday2/glass/glass_clear_small_blue_df"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_vehicle_op"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <variable value="2 1 0.6" name="fresnel_settings" type="vector3"/>
+    </material>
+    <material version="2" name="mat_case" render_template="generic:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP">
+        <diffuse_texture file="units/payday2/props/com_prop_jewelry_jewels/com_prop_jewelry_box_df"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <bump_normal_texture file="units/payday2/props/com_prop_jewelry_jewels/com_prop_jewelry_box_nm"/>
+    </material>
+    <material version="2" name="mat_jarofdirt" render_template="generic:CONTOUR:DIFFUSE_TEXTURE">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_e_df"/>
+        <variable value="0 1 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+</materials>

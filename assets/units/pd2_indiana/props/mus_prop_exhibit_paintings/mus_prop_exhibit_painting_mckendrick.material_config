@@ -1,0 +1,14 @@
+<materials version="3">
+	<material name="mat_mus_prop_exhibit_painting_mckendrick" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" decal_material="wood" version="2" >
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_exhibit_paintings/mus_prop_exhibit_painting_mckendrick_df"/>
+		<bump_normal_texture file="units/pd2_indiana/props/mus_prop_exhibit_paintings/mus_prop_exhibit_painting_mckendrick_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>	
+		<material name="mat_mus_prop_exhibit_painting_mckendrick_lod1" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" decal_material="wood" version="2" >
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_exhibit_paintings/mus_prop_exhibit_painting_mckendrick_df" mip="5"/>
+		<bump_normal_texture file="units/pd2_indiana/props/mus_prop_exhibit_paintings/mus_prop_exhibit_painting_mckendrick_nm" mip="5"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>	
+</materials>

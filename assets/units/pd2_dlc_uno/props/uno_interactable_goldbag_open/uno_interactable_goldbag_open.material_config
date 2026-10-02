@@ -1,0 +1,74 @@
+<materials version="3">
+    <material render_template="generic:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="gold_bar" version="2">
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_interactable_goldbag_open/uno_interactable_goldbag_bar_df"/>
+        <bump_normal_texture file="units/pd2_dlc_uno/props/uno_interactable_goldbag_open/uno_interactable_goldbag_bar_nm"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+        <material_texture file="units/pd2_dlc_uno/props/uno_interactable_goldbag_open/uno_interactable_goldbag_bar_gsma"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" name="mtr_lootbag" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_interactable_goldbag_open/uno_interactable_goldbag_open_df"/>
+        <bump_normal_texture file="units/pd2_dlc_uno/props/uno_interactable_goldbag_open/uno_interactable_goldbag_open_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_1" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="match"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="1"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_2" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="candle"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="2"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_3" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="desklight"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="3"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_4" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="neonsign"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="4"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_5" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="flashlight"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="5"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_6" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="monitor"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="6"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_7" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="dimlight"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="7"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_8" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="streetlight"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="8"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_9" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="reddot"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="9"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM" name="mat_glow_10" version="2">
+        <self_illumination_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_multiplier" value="megatron"/>
+        <diffuse_texture file="units/pd2_dlc_uno/props/uno_gold_bar/uno_goldbar_glow_il"/>
+        <variable type="scalar" name="il_bloom" value="9.999000474927"/>
+    </material>
+</materials>

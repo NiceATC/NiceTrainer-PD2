@@ -1,0 +1,13 @@
+<materials version="3">
+    <material render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE" name="mat_led_lights" version="2">
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_interactable_bomb/drk_interactable_bomb_lights_df"/>
+        <variable type="scalar" name="intensity" value="streetlight"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" name="mat_battery" version="2">
+        <diffuse_texture file="units/pd2_dlc_des/props/des_prop_ray_battery/des_ray_battery_df"/>
+        <bump_normal_texture file="units/pd2_dlc_des/props/des_prop_ray_battery/des_ray_battery_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <diffuse_texture file="units/pd2_dlc_dark/props/drk_interactable_bomb/drk_interactable_bomb_lights_df"/>
+</materials>

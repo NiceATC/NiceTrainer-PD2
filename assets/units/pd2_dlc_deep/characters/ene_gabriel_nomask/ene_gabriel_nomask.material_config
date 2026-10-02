@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<materials group="ene_gabriel_nomask" version="3">
+	<material name="mtr_lowerbody" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_COPS:SKINNED_3WEIGHTS" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_deep/characters/ene_gabriel/ene_boss_bodylower_df"/>
+		<bump_normal_texture file="units/pd2_dlc_deep/characters/ene_gabriel/ene_boss_bodylower_nm"/>
+		<variable name="contour_color" value="1 0 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mtr_upperbody" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_COPS:SKINNED_3WEIGHTS" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_deep/characters/ene_gabriel/ene_boss_bodyupper_df"/>
+		<bump_normal_texture file="units/pd2_dlc_deep/characters/ene_gabriel/ene_boss_bodyupper_nm"/>
+		<variable name="contour_color" value="1 0 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mtr_head" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_COPS:SKINNED_3WEIGHTS" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_deep/characters/ene_gabriel/ene_boss_head_df"/>
+		<bump_normal_texture file="units/pd2_dlc_deep/characters/ene_gabriel/ene_boss_head_nm"/>
+		<variable name="contour_color" value="1 0 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mtr_hair" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:DOUBLE_SIDED:EXTERNAL_ALPHA_REF:NORMALMAP:OPACITY_TEXTURE:RL_COPS:SKINNED_3WEIGHTS" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_deep/characters/ene_gabriel_nomask/ene_gabriel_hair_df"/>
+		<bump_normal_texture file="units/pd2_dlc_corp/characters/npc_blaine_keegan/npc_blaine_keegain_hair_nm"/>
+		<opacity_texture file="units/pd2_dlc_corp/characters/npc_blaine_keegan/npc_blaine_keegain_hair_op"/>
+		<variable name="contour_color" value="1 0 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+		<variable name="alpha_ref" type="scalar" value="0.12"/>
+	</material>
+	<material name="shadow_caster" render_template="shadow_caster_only:SKINNED_1WEIGHT"/>
+</materials>

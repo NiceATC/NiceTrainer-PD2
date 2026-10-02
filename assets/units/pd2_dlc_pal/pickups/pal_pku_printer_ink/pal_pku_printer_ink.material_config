@@ -1,0 +1,12 @@
+<materials version="3">
+	<material name="mat_printer_ink" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_pal/pickups/pal_pku_printer_ink/pal_pku_printer_ink_df" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mat_printer_ink_lod" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_pal/pickups/pal_pku_printer_ink/pal_pku_printer_ink_df" mip="3" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+</materials>

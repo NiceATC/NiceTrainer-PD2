@@ -1,0 +1,35 @@
+-- ============================================================
+-- NiceTrainer Example Addon
+-- Rename this file to 'example_addon.lua' to test it in game!
+-- ============================================================
+
+-- 1. Example: Adding an action to the existing "Player" tab
+NiceTrainer:RegisterAction("Player", {
+    type     = "button",
+    category = "Addon Examples",
+    id       = "example_heal_toast",
+    text     = "Addon Test Button",
+    tooltip  = "Demonstrates an action injected via the addons system.",
+    callback = function()
+        NiceTrainer:Toast("Addon script is working perfectly!", Color(0.2, 0.8, 1.0))
+    end
+})
+
+-- 2. Example: Creating a completely new tab in the menu
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_Addon_ExampleTab", function(trainer)
+    trainer:CreateTab("AddonTab", { show_in = "all" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)
+
+NiceTrainer:RegisterAction("AddonTab", {
+    type     = "toggle",
+    category = "Demonstration",
+    id       = "addon_sample_toggle",
+    text     = "Sample Toggle",
+    tooltip  = "A sample toggle registered inside a custom addon tab.",
+    default  = false,
+    callback = function(state)
+        NiceTrainer:Toast("Sample toggle state: " .. tostring(state))
+    end
+})

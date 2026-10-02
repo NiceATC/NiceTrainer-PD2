@@ -1,0 +1,25 @@
+<materials version="3">
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_briefcase" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_jfr/props/prop_airplane_briefcase/jfr_prop_airplane_briefcase_df"/>
+        <bump_normal_texture file="units/pd2_dlc_jfr/props/prop_airplane_briefcase/jfr_prop_airplane_briefcase_nm"/>
+        <material_texture file="units/pd2_dlc_jfr/props/prop_airplane_briefcase/jfr_prop_airplane_briefcase_gsma"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_briefcase_lod" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_jfr/props/prop_airplane_briefcase/jfr_prop_airplane_briefcase_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_dlc_jfr/props/prop_airplane_briefcase/jfr_prop_airplane_briefcase_nm" mip="4"/>
+        <material_texture file="units/pd2_dlc_jfr/props/prop_airplane_briefcase/jfr_prop_airplane_briefcase_gsma" mip="4"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material unique="true" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" version="2" name="mat_outline">
+        <diffuse_texture file="units/white_df"/>
+        <opacity_texture file="units/transparent_op"/>
+        <variable type="vector3" name="contour_color" value="1 0.5 0"/>
+        <variable type="scalar" name="contour_opacity" value="1"/>
+    </material>
+    <material render_template="shadow_caster_only" name="shadow_caster" version="2"/>
+</materials>

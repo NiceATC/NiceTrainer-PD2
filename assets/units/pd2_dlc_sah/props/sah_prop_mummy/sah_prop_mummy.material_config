@@ -1,0 +1,14 @@
+<materials version="3">
+	<material name="mat_lod0" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_mummy/sah_prop_mummy_df"  mip="1"/>
+		<bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_mummy/sah_prop_mummy_nm"  mip="1"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="mat_lod1" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_mummy/sah_prop_mummy_df" mip="4" />
+		<bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_mummy/sah_prop_mummy_nm" mip="4" />
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+</materials>

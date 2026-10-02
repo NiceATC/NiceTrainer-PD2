@@ -1,0 +1,122 @@
+{
+	"name": "NiceTrainer Framework",
+	"description": "A cheat modular framework",
+	"author": "NiceATC",
+	"version": "1.4.3",
+	"blt_version": 2,
+	"hooks": [
+		{
+			"hook_id": "lib/setups/setup",
+			"script_path": "framework/early_init.lua"
+		},
+		{
+			"hook_id": "lib/managers/menumanager",
+			"script_path": "framework/init.lua"
+		},
+		{
+			"hook_id": "lib/managers/dlcmanager",
+			"script_path": "modules/account/actions/unlocker.lua"
+		},
+		{
+			"hook_id": "lib/managers/blackmarketmanager",
+			"script_path": "modules/account/actions/unlocker.lua"
+		},
+		{
+			"hook_id": "lib/network/base/basenetworksession",
+			"script_path": "modules/account/actions/unlocker.lua"
+		},
+		{
+			"hook_id": "lib/managers/chatmanager",
+			"script_path": "modules/misc/actions/chat_translator_core.lua"
+		},
+		{
+			"hook_id": "lib/managers/hud/hudchat",
+			"script_path": "modules/misc/actions/chat_translator_core.lua"
+		},
+		{
+			"hook_id": "lib/managers/hudmanagerpd2",
+			"script_path": "modules/misc/actions/chat_translator_core.lua"
+		},
+		{
+			"hook_id": "lib/tweak_data/skilltreetweakdata",
+			"script_path": "modules/account/actions/skills_unlocker.lua"
+		},
+		{
+			"hook_id": "core/lib/managers/coreworldinstancemanager",
+			"script_path": "modules/heist/actions/the_diamond.lua"
+		},
+		{
+			"hook_id": "lib/managers/missionmanager",
+			"script_path": "modules/heist/actions/the_diamond.lua"
+		},
+		{
+			"hook_id": "lib/units/props/digitalgui",
+			"script_path": "modules/heist/actions/the_diamond.lua"
+		},
+		{
+			"hook_id": "lib/managers/dialogmanager",
+			"script_path": "modules/heist/actions/cook_off.lua"
+		},
+		{
+			"hook_id": "core/lib/managers/mission/coreelementrandom",
+			"script_path": "modules/heist/actions/election_day.lua"
+		},
+		{
+			"hook_id": "lib/managers/mission/elementsecuritycamera",
+			"script_path": "modules/visuals/actions/camera_hooks.lua"
+		},
+		{
+			"hook_id": "lib/units/equipment/spy_camera/spycamerabase",
+			"script_path": "modules/visuals/actions/camera_hooks.lua"
+		},
+		{
+			"hook_id": "lib/units/beings/player/states/playerstandard",
+			"script_path": "modules/player/actions/modernmovement/playerstandard_loader.lua"
+		},
+		{
+			"hook_id": "lib/units/beings/player/states/playertased",
+			"script_path": "modules/player/actions/modernmovement/playertased.lua"
+		},
+		{
+			"hook_id": "lib/units/beings/player/states/playercarry",
+			"script_path": "modules/player/actions/modernmovement/playercarry.lua"
+		},
+		{
+			"hook_id": "lib/managers/hudmanagerpd2",
+			"script_path": "modules/stealth/actions/ecm_timer.lua"
+		},
+		{
+			"hook_id": "lib/units/equipment/ecm_jammer/ecmjammerbase",
+			"script_path": "modules/stealth/actions/ecm_timer.lua"
+		},
+		{
+			"hook_id": "lib/units/beings/player/playerinventory",
+			"script_path": "modules/stealth/actions/ecm_timer.lua"
+		},
+		{
+			"hook_id": "lib/managers/playermanager",
+			"script_path": "modules/visuals/actions/suit_flashlight.lua"
+		},
+		{
+			"hook_id": "lib/managers/hudmanagerpd2",
+			"script_path": "modules/heist/actions/heist_codes.lua"
+		},
+		{
+			"hook_id": "lib/managers/hud/hudchat",
+			"script_path": "modules/heist/actions/heist_codes.lua"
+		},
+		{
+			"hook_id": "lib/managers/chatmanager",
+			"script_path": "modules/heist/actions/heist_codes.lua"
+		},
+		{
+			"hook_id": "lib/managers/gameplaycentralmanager",
+			"script_path": "modules/heist/actions/heist_codes.lua"
+		},
+		{
+			"hook_id": "lib/managers/missionmanager",
+			"script_path": "modules/heist/actions/heist_codes.lua"
+		}
+	]
+}
+

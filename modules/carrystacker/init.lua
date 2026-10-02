@@ -1,0 +1,5 @@
+dofile(NiceTrainer.ModPath .. "modules/carrystacker/tab.lua")
+dofile(NiceTrainer.ModPath .. "modules/carrystacker/actions/bag_stacker.lua")
+dofile(NiceTrainer.ModPath .. "modules/carrystacker/actions/equip_stacker.lua")
+dofile(NiceTrainer.ModPath .. "modules/carrystacker/actions/secure_loot.lua")
+dofile(NiceTrainer.ModPath .. "modules/carrystacker/actions/remote_pickup.lua")

@@ -1,0 +1,8 @@
+<materials version="3">
+    <material name="mtr_bnk_prop_vault_loot_i" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/payday2/props/bnk_prop_vault_loot_value_i/bnk_prop_vault_loot_i_df"/>
+        <bump_normal_texture file="units/payday2/props/bnk_prop_vault_loot_value_i/bnk_prop_vault_loot_i_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

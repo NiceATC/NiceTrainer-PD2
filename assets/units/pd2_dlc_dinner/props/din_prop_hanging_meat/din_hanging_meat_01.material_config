@@ -1,0 +1,29 @@
+<materials version="3">
+    <material name="mat_pig" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_df"/>
+        <bump_normal_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="0" type="scalar"/>
+    </material>
+    <material name="mat_pig_lod" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture mip="4" file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_df"/>
+        <bump_normal_texture mip="4" file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="0" type="scalar"/>
+    </material>
+    <material name="mat_steel" render_template="generic:DIFFUSE_TEXTURE" version="2">
+        <diffuse_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_steel_df"/>
+    </material>
+    <material name="mat_steel_lod" render_template="generic:DIFFUSE_TEXTURE" version="2">
+        <diffuse_texture mip="4" file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_steel_df"/>
+    </material>
+    <material name="mat_chain" render_template="generic:ALPHA_MASKED:DIFFUSE_TEXTURE:DOUBLE_SIDED:EXTERNAL_ALPHA_REF:OPACITY_TEXTURE" version="2">
+        <diffuse_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_chain_df"/>
+        <variable value="0.49000000953674" type="scalar" name="alpha_ref"/>
+        <opacity_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_chain_op"/>
+    </material>
+    <material name="mat_x_decal" render_template="decal:DIFFUSE_TEXTURE:OPACITY_TEXTURE" version="2">
+        <opacity_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_stamp_dcd"/>
+        <diffuse_texture file="units/pd2_dlc_dinner/props/din_prop_hanging_meat/din_prop_hanging_meat_stamp_dcd"/>
+    </material>
+</materials>

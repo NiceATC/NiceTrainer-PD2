@@ -1,0 +1,25 @@
+<materials version="3">
+    <material name="mat_gavel" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_f_df"/>
+        <material_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_f_gsma"/>
+        <bump_normal_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_f_nm"/>
+        <reflection_texture file="environments/cubemaps/cubemap_brass" type="cubemap"/>
+        <variable value="0 1 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+    <material name="mat_auction_tag" render_template="generic:ALIGN_NORMAL_WORLD_Z:ALPHA_MASKED:DIFFUSE_TEXTURE:DOUBLE_SIDED:EXTERNAL_ALPHA_REF" version="2">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/auction_tag_no059_df"/>
+        <variable name="alpha_ref" value="0" type="scalar"/>
+    </material>
+    <material version="2" name="mat_glass" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" decal_material="glass_breakable">
+        <diffuse_texture file="units/payday2/glass/glass_clear_small_blue_df"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_vehicle_op"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <variable name="fresnel_settings" value="2 1 0.6" type="vector3"/>
+    </material>
+    <material name="mat_case" render_template="generic:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/payday2/props/com_prop_jewelry_jewels/com_prop_jewelry_box_df"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <bump_normal_texture file="units/payday2/props/com_prop_jewelry_jewels/com_prop_jewelry_box_nm"/>
+    </material>
+</materials>

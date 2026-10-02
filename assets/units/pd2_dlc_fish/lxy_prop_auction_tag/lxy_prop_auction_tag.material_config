@@ -1,0 +1,48 @@
+<materials version="3">
+    <material render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" name="mat_lxy_sticker_white" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_white_df"/>
+        <opacity_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_op"/>
+        <variable type="scalar" name="alpha_ref" value="0.6290000298759"/>
+        <self_illumination_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_white_df"/>
+        <variable type="scalar" name="il_multiplier" value="candle"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" name="mat_lxy_sticker_blue" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_blue_df"/>
+        <opacity_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_op"/>
+        <variable type="scalar" name="alpha_ref" value="0.6290000298759"/>
+        <self_illumination_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_blue_df"/>
+        <variable type="scalar" name="il_multiplier" value="candle"/>
+		<variable name="contour_color" value="0 0.5 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" name="mat_lxy_sticker_yellow" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_yellow_df"/>
+        <opacity_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_op"/>
+        <variable type="scalar" name="alpha_ref" value="0.6290000298759"/>
+        <self_illumination_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_yellow_df"/>
+        <variable type="scalar" name="il_multiplier" value="candle"/>
+		<variable name="contour_color" value="1 0.5 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" name="mat_lxy_sticker_red" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_red_df"/>
+        <opacity_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_op"/>
+        <variable type="scalar" name="alpha_ref" value="0.6290000298759"/>
+        <self_illumination_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_red_df"/>
+        <variable type="scalar" name="il_multiplier" value="candle"/>
+		<variable name="contour_color" value="1 0 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" name="mat_lxy_sticker_green" version="2">
+        <diffuse_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_green_df"/>
+        <opacity_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_op"/>
+        <variable type="scalar" name="alpha_ref" value="0.6290000298759"/>
+        <self_illumination_texture file="units/pd2_dlc_fish/lxy_prop_stickers/lxy_prop_stickers_green_df"/>
+        <variable type="scalar" name="il_multiplier" value="candle"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+</materials>

@@ -1,0 +1,34 @@
+<materials version="3">
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_boat_plaque1" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_boat_plaque/sah_prop_boat_plaque_df" />
+        <bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_boat_plaque/sah_prop_boat_plaque_nm" />
+        <material_texture file="units/pd2_dlc_sah/props/sah_prop_boat_plaque/sah_prop_boat_plaque_gsma" />
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_prop_surv_spyglass" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_df" />
+        <bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_nm" />
+        <material_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_gsma" />
+        <reflection_texture file="units/pd2_dlc_dah/environments/cubemaps/cubemap_white_highlight_blurry" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material version="2" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" name="mat_prop_surv_spyglass_gold" >
+        <diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_df" />
+        <bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_nm" />
+        <material_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_gsma" />
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2" unique="true" name="mat_prop_surv_spyglass_glass">
+        <diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_df" />
+        <bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_nm" />
+        <material_texture file="units/pd2_dlc_sah/props/sah_prop_survival_spyglass/sah_prop_survival_spyglass_gsma" />
+        <reflection_texture file="environments/cubemaps/cubemap_office" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

@@ -1,0 +1,34 @@
+<materials version="3">
+    <material unique="true" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" name="mat_restroom_toilet_outline" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable type="vector3" name="contour_color" value="1 0.5 0"/>
+        <variable type="scalar" name="contour_opacity" value="1"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE" name="mat_restroom_toilet" unique="true" version="2">
+        <diffuse_texture file="units/payday2/props/com_prop_restroom_toilet/com_prop_restroom_toilet_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE:DIFFUSE_UVANIM:NORMALMAP:NORMAL_UVANIM:SKINNED_3WEIGHTS:VEGETATION_BENDING" name="mtr_running_water" version="2">
+        <opacity_texture file="units/payday2/props/str_prop_park_fountain/str_prop_park_fountain_water_op"/>
+        <diffuse_texture file="units/world/water/water_foam_df"/>
+        <bump_normal_texture file="units/test/water_shader/water_nm"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <variable type="vector3" name="fresnel_settings" value="1.7300000190735 0.46999999880791 0.68000000715256"/>
+        <variable type="vector3" name="uv_speed" value="-0.075999766588211 -0.31299978494644 0"/>
+        <variable type="scalar" name="speed" value="4"/>
+        <variable type="vector3" name="detail_settings" value="0 0.4370000064373 0"/>
+        <variable type="vector3" name="branch_settings" value="2.1600000858307 1.7560000419617 0"/>
+    </material>
+    <material unique="true" render_template="generic:BLEND_DIFFUSE:BLEND_FADE:BLEND_FADE_TIME:BLEND_MASK_SEPERATE:BLEND_NORMAL:DIFFUSE_TEXTURE:NORMALMAP" version="2" name="mat_paper_liquid" decal_material="generic">
+        <diffuse_texture file="units/pd2_dlc_des/props/des_interactable_secret_document/des_interactable_secret_document_df"/>
+        <bump_normal_texture file="units/pd2_dlc_vr/player/normal_nm"/>
+        <diffuse_layer0_texture file="units/pd2_dlc_pex/props/pex_prop_secret_document_burn/pex_interactable_secret_document_wet_df"/>
+        <normal_layer0_texture file="units/pd2_dlc_vr/player/normal_nm"/>
+        <variable type="scalar" name="blend_fade_end" value="0.97999997809529"/>
+        <variable type="scalar" name="blend_fade_start" value="0"/>
+        <diffuse_layer1_texture file="units/pd2_dlc_pex/props/pex_prop_secret_document_burn/pex_interactable_secret_document_wet_blend_df"/>
+        <variable type="scalar" name="blend_fade_mask_fuzziness" value="0.48600002308376"/>
+    </material>
+</materials>

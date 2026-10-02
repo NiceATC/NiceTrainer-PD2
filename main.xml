@@ -1,0 +1,17 @@
+<table name="NiceTrainer">
+    <sounds directory="sounds">
+        <sound id="pd3_slide_generic1" path="pd3_slide_generic_001.ogg"/>
+        <sound id="pd3_slide_generic2" path="pd3_slide_generic_002.ogg"/>
+        <sound id="pd3_slide_generic3" path="pd3_slide_generic_003.ogg"/>
+        <sound id="pd3_slide_generic4" path="pd3_slide_generic_004.ogg"/>
+        <sound id="mantle_grab1" path="mantle_grab1.ogg"/>
+        <sound id="mantle_grab2" path="mantle_grab2.ogg"/>
+        <sound id="mantle_grab3" path="mantle_grab3.ogg"/>
+        <sound id="mantle_grab4" path="mantle_grab4.ogg"/>
+        <sound id="pd3_crouch_general1" path="pd3_crouch_general_001.ogg"/>
+        <sound id="pd3_crouch_general2" path="pd3_crouch_general_002.ogg"/>
+        <sound id="kick_heavy" path="kick_heavy.ogg"/>
+        <sound id="kick_light" path="kick_light.ogg"/>
+        <sound id="kick_off" path="kick_off.ogg"/>
+    </sounds>
+</table>

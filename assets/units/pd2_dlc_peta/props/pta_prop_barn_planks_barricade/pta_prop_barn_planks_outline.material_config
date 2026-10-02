@@ -1,0 +1,40 @@
+<materials version="3">
+	<material name="shadow_caster" render_template="shadow_caster_only" version="2"/>
+	<material name="mat_pta_barn_wood_painted_blend_01" render_template="generic:BLEND_DIFFUSE:BLEND_MASK_SEPERATE:BLEND_NORMAL:BLEND_SMOOTH:DIFFUSE_TEXTURE:NORMALMAP:RL_CORE_ENVIRONMENT:VERTEX_COLOR" version="2">
+		<diffuse_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_floor_01_b_df"/>
+		<diffuse_layer0_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_painted_01_df"/>
+		<diffuse_layer1_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_ground_mask_02_df"/>
+		<bump_normal_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_floor_01_nm"/>
+		<normal_layer0_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_floor_01_nm"/>
+	</material>
+	<material name="mat_pta_barn_wood_painted_blend_01_lod" render_template="generic:BLEND_DIFFUSE:BLEND_MASK_SEPERATE:BLEND_NORMAL:BLEND_SMOOTH:DIFFUSE_TEXTURE:NORMALMAP:RL_CORE_ENVIRONMENT:VERTEX_COLOR" version="2">
+		<diffuse_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_floor_01_b_df" mip="5"/>
+		<diffuse_layer0_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_painted_01_df" mip="5"/>
+		<diffuse_layer1_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_ground_mask_02_df" mip="5"/>
+		<bump_normal_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_floor_01_nm" mip="5"/>
+		<normal_layer0_texture file="units/pd2_dlc_peta/architecture/pta_2/pta_barn_planks_floor_01_nm" mip="5"/>
+	</material>
+	<material name="mat_sunray" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM:INTERSECTION_FADEOUT:VIEW_ANGLE_FALLOFF_OP" version="2">
+		<diffuse_texture file="units/pd2_dlc_peta/props/pta_prop_barn_planks_barricade/sunray_df"/>
+		<variable value="0 0.21321243047714 0" type="vector3" name="uv0_speed"/>
+		<variable value="candle" type="scalar" name="intensity"/>
+		<variable value="9.9999997473788e-005" type="scalar" name="falloff_exp"/>
+		<variable value="251" type="scalar" name="fadeout_distance"/>
+	</material>
+	<material name="hud_brackets" render_template="effect:DIFFUSE0_TEXTURE:VIEW_ANGLE_FALLOFF_OP" version="2">
+		<diffuse_texture file="units/gui/gui_brackets_df"/>
+		<variable value="identity" type="scalar" name="intensity"/>
+		<variable value="1" type="scalar" name="falloff_exp"/>
+	</material>
+	<material name="mtr_plank" render_template="effect:DIFFUSE0_TEXTURE:VIEW_ANGLE_FALLOFF_OP" version="2">
+		<diffuse_texture file="units/gui/plank_indicator_df"/>
+		<variable value="identity" type="scalar" name="intensity"/>
+		<variable value="1" type="scalar" name="falloff_exp"/>
+	</material>
+	<material version="2" unique="true" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" name="mat_contour">
+		<diffuse_texture file="units/white_df"/>
+		<variable value="0 1 0" type="vector3" name="contour_color"/>
+		<variable value="1" type="scalar" name="contour_opacity"/>
+		<opacity_texture file="units/transparent_op"/>
+	</material>
+</materials>

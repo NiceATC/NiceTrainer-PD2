@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_AccountTab", function(trainer)
+    trainer:CreateTab("Account", { show_in = "menu" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

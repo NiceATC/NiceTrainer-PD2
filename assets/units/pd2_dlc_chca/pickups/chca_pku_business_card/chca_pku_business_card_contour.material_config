@@ -1,0 +1,7 @@
+<materials version="3" group="chca_pku_business_card">
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE" name="mtr_card" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_chca/pickups/chca_pku_business_card/card_df"/>
+        <variable type="vector3" name="contour_color" value="1 0.5 0"/>
+        <variable type="scalar" name="contour_opacity" value="1"/>
+    </material>
+</materials>

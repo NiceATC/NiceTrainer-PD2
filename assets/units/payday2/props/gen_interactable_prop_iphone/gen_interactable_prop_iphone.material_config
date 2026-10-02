@@ -1,0 +1,11 @@
+<materials version="3" group="gen_interactable_prop_iphone" >
+    <material name="iphone" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:SELF_ILLUMINATION" unique="true" version="2">
+        <diffuse_texture file="units/world/props/iphone/iphone_df"/>
+        <self_illumination_texture file="units/world/props/iphone/iphone_il"/>
+        <variable value="sun" type="scalar" name="il_multiplier"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+        <variable value="2.7000000476837 0.34500002861023 2.9000000953674" type="vector3" name="environment_settings"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

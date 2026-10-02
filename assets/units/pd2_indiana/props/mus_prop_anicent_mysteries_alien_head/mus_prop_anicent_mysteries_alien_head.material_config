@@ -1,0 +1,15 @@
+<materials version="3">
+    <material name="mtr_skull" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_anicent_mysteries_alien_head/mus_prop_anicent_mysteries_alien_head_df"/>
+        <bump_normal_texture file="units/pd2_indiana/props/mus_prop_anicent_mysteries_alien_head/mus_prop_anicent_mysteries_alien_head_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+	
+    <material name="mtr_skull_lod1" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_anicent_mysteries_alien_head/mus_prop_anicent_mysteries_alien_head_df" mip="2"/>
+        <bump_normal_texture file="units/pd2_indiana/props/mus_prop_anicent_mysteries_alien_head/mus_prop_anicent_mysteries_alien_head_nm" mip="2"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

@@ -1,0 +1,17 @@
+<materials version="3">
+	<material decal_material="plastic" name="mat_ext_flamingo" render_template="generic:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP">
+		<diffuse_texture file="units/pd2_dlc_friend/props/sfm_prop_ext_flamingo/sfm_prop_ext_flamingo_df" />
+		<material_texture file="units/pd2_dlc_friend/props/sfm_prop_ext_flamingo/sfm_prop_ext_flamingo_gsma" />
+		<bump_normal_texture file="units/pd2_dlc_friend/props/sfm_prop_ext_flamingo/sfm_prop_ext_flamingo_nm" />
+		<variable value="1 0 1" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+	</material>
+	<material decal_material="no_decal" name="mat_ext_flamingo_lod" render_template="generic:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP">
+		<diffuse_texture file="units/pd2_dlc_friend/props/sfm_prop_ext_flamingo/sfm_prop_ext_flamingo_df" mip="4" />
+		<material_texture file="units/pd2_dlc_friend/props/sfm_prop_ext_flamingo/sfm_prop_ext_flamingo_gsma" mip="4" />
+		<bump_normal_texture file="units/pd2_dlc_friend/props/sfm_prop_ext_flamingo/sfm_prop_ext_flamingo_nm" mip="4" />
+		<variable value="1 0 1" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+	</material>
+	<material name="shadow_caster" render_template="shadow_caster_only" version="2" />
+</materials>

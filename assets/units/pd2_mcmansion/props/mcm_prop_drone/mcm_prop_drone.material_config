@@ -1,0 +1,30 @@
+<materials version="3">
+    <material name="mat_mcm_prop_drone" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_drone/mcm_prop_drone_body_df"/>
+        <bump_normal_texture file="units/pd2_mcmansion/props/mcm_prop_drone/mcm_prop_drone_body_nm"/>
+        <reflection_texture type="cubemap" file="units/payday2/cubemaps/cubemap_zero_df"/>
+        <variable value="1 0 2" type="vector3" name="environment_settings"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mat_mcm_prop_drone_propeller" render_template="effect:BLEND_MUL:DIFFUSE0_TEXTURE" version="2">
+        <diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_drone/mcm_prop_drone_propeller_df"/>
+        <variable value="dimlight" type="scalar" name="intensity"/>
+    </material>
+    <material version="2" render_template="generic:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" name="mat_mcm_prop_drone_cubemap">
+        <diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_drone/mcm_prop_drone_body_df"/>
+        <bump_normal_texture file="units/pd2_mcmansion/props/mcm_prop_drone/mcm_prop_drone_body_nm"/>
+        <reflection_texture file="units/payday2/cubemaps/cubemap_silver_df" type="cubemap"/>
+        <variable value="1 0 2" type="vector3" name="environment_settings"/>
+    </material>
+    <material version="2" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM" name="mat_lights">
+        <diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_drone/mcm_prop_drone_lights_df"/>
+        <variable value="searchlight" type="scalar" name="intensity"/>
+        <variable value="0 1.3720002174377 0" type="vector3" name="uv0_speed"/>
+    </material>
+    <material name="light_cone" decal_material="sheet_metal" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DOUBLE_SIDED:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <diffuse_texture file="units/world/street/street_lights/cone_light_df"/>
+        <variable value="2" type="scalar" name="falloff_exp"/>
+        <variable value="desklight" type="scalar" name="intensity"/>
+    </material>
+</materials>

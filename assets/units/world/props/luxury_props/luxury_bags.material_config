@@ -1,0 +1,16 @@
+<materials version="3">
+    <material name="bags_material" render_template="generic:DIFFUSE_TEXTURE:GLOSS_CONTROL_VALUE" version="2">
+        <diffuse_texture file="units/world/props/luxury_props/luxury_bags_boxes_df"/>
+        <variable value="0" type="scalar" name="glossiness_control"/>
+    </material>
+    <material name="jewelrybox_material" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/world/props/luxury_props/jewelrybox_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="jewelry_material" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/jewelry_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

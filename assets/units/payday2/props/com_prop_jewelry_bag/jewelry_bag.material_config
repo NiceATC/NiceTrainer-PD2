@@ -1,0 +1,15 @@
+<materials version="3">
+    <material name="bags_material" render_template="generic:DIFFUSE_TEXTURE" version="2">
+        <diffuse_texture file="units/payday2/props/com_prop_jewelry_bag/jewelry_bags_boxes_df"/>
+    </material>
+	        <material name="jewelrybox_material" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+                <diffuse_texture file="units/payday2/props/com_prop_jewelry_bag/jewelrybox_df"/>
+				<variable name="contour_color" value="1 1 1" type="vector3"/>
+				<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+	              <material name="jewelry_material" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+                      <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/jewelry_df"/>
+					  <variable name="contour_color" value="1 1 1" type="vector3"/>
+					  <variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

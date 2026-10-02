@@ -1,0 +1,27 @@
+<materials version="3">
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE" decal_material="glass_unbreakable" version="2" unique="true" name="diamond_pickups">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <opacity_texture file="units/world/props/diamondheist_diamond_pickups/gems_op"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material unique="true" version="2" decal_material="glass_unbreakable" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" name="glow">
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <variable value="1 1 1" type="vector3" name="contour_color"/>
+    </material>
+    <material render_template="opacity:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE" decal_material="glass_breakable" version="2" name="diamond_inside">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <opacity_texture file="units/world/props/diamondheist_diamond_pickups/gems_op"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+    </material>
+    <material render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE" decal_material="glass_unbreakable" version="2" name="caustics">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <variable value="identity" type="scalar" name="intensity"/>
+    </material>
+    <material render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:VIEW_ANGLE_FALLOFF_OP" decal_material="glass_unbreakable" version="2" name="shimmer">
+        <diffuse_texture file="units/world/props/diamondheist_diamond_pickups/gems_df"/>
+        <variable value="identity" type="scalar" name="intensity"/>
+        <variable value="36" type="scalar" name="falloff_exp"/>
+    </material>
+</materials>

@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_SpawnerTab", function(trainer)
+    trainer:CreateTab("Spawner", { show_in = "game" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

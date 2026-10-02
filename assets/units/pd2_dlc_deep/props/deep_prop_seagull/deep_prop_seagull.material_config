@@ -1,0 +1,7 @@
+<materials version="3">
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:SKINNED_3WEIGHTS" name="mat_gull" version="2">
+        <diffuse_texture file="units/pd2_dlc_bph/props/bph_prop_seagull/prop_bph_seagull_df"/>
+		<variable name="contour_color" value="1 0 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

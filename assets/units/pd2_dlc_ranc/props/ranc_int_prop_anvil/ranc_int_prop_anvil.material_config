@@ -1,0 +1,27 @@
+<materials version="3">
+    <material render_template="generic:DIFFUSE_TEXTURE" name="mat_whitebox" version="2">
+        <diffuse_texture file="units/payday2/architecture/mkp/mkp_grid_df"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" name="mat_mould" version="2">
+        <diffuse_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/mould_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/mould_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:GLOBAL_ENVIRONMENT_MAPPING:NORMALMAP" name="mat_anvil" version="2">
+        <diffuse_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/anvil_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/anvil_nm"/>
+    </material>
+    <material render_template="generic:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_silver" version="2">
+        <diffuse_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/silver_ingot_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/silver_ingot_nm"/>
+        <material_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/silver_ingot_gsma"/>
+        <reflection_texture file="environments/cubemaps/jry_cubemaps/cubemap_chrome_df" type="cubemap"/>
+    </material>
+    <material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:GLOBAL_ENVIRONMENT_MAPPING:NORMALMAP" name="mat_hammer" version="2">
+        <diffuse_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/hammer_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/props/ranc_int_prop_anvil/hammer_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

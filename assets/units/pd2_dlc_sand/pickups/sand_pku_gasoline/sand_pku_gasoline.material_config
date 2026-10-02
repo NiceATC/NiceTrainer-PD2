@@ -1,0 +1,23 @@
+<materials version="3">
+    <material decal_material="metal" name="mat_gas_can" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_run/pickups/run_pku_gas_can_2/run_pku_gas_can_2_df" />
+        <material_texture file="units/pd2_dlc_run/pickups/run_pku_gas_can_2/run_pku_gas_can_2_gsma" />
+        <bump_normal_texture file="units/pd2_dlc_run/pickups/run_pku_gas_can_2/run_pku_gas_can_2_nm" />
+        <variable value="1 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+    <material decal_material="metal" name="mat_gas_can_lod" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_run/pickups/run_pku_gas_can_2/run_pku_gas_can_2_df" mip="4" />
+        <material_texture file="units/pd2_dlc_run/pickups/run_pku_gas_can_2/run_pku_gas_can_2_gsma" mip="4" />
+        <bump_normal_texture file="units/pd2_dlc_run/pickups/run_pku_gas_can_2/run_pku_gas_can_2_nm" mip="4" />
+        <variable value="1 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+    <material name="shadow_caster" render_template="shadow_caster_only" version="2" />
+    <material name="mtr_outline" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/black_df"/>
+        <variable value="1.0 0.5 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+</materials>

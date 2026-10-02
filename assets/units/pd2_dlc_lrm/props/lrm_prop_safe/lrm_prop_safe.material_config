@@ -1,0 +1,80 @@
+<materials version="3">
+    <material name="mat_safe_weapon" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:SKINNED_3WEIGHTS" version="2">
+		<diffuse_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_prop_safe_df" />
+        <bump_normal_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_prop_safe_nm"/>
+        <reflection_texture type="cubemap" file="environments/cubemaps/cubemap_steel"/>
+        <variable value="1 0 2" type="vector3" name="environment_settings"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mat_mex_charge" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_01_df"/>
+        <bump_normal_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_01_nm"/>
+        <variable value="1 1 1" type="vector3" name="contour_color"/>
+        <variable value="0" type="scalar" name="contour_opacity"/>
+    </material>
+    <material name="mat_mex_charge_lod" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture mip="4" file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_01_df"/>
+        <bump_normal_texture mip="4" file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_01_nm"/>
+    </material>
+    <material version="2" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM" name="mat_lights_anim">
+        <diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_panicroom/mcm_prop_panicroom_controldevices_anim_df"/>
+        <variable value="streetlight" type="scalar" name="intensity"/>
+        <variable value="0 0.14400005340576 0" type="vector3" name="uv0_speed"/>
+    </material>
+    <material name="mat_devices" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_02_df" />
+        <bump_normal_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_02_nm" />
+    </material>
+    <material name="mat_devices_lod" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_02_df" mip="4" />
+        <bump_normal_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_keycard_reader_02_nm" mip="4" />
+    </material>
+    <material name="mat_confirmed" render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION" version="2" >
+        <diffuse_texture file="units/pd2_mcmansion/props/mcm_prop_panicroom/mcm_prop_panicroom_controldevices_df"/>
+        <self_illumination_texture file="units/pd2_mcmansion/props/mcm_prop_panicroom/mcm_prop_panicroom_controldevices_df"/>
+        <variable value="neonsign" type="scalar" name="intensity"/>
+    </material>
+    <material name="mat_keycard" render_template="generic:DIFFUSE_TEXTURE" version="2">
+        <diffuse_texture file="units/pd2_dlc_lrm/props/lrm_pku_keycard/lrm_keycard_generic_df"/>
+    </material>
+    <material name="mat_mull" render_template="effect:BLEND_MUL:DIFFUSE0_TEXTURE:SKINNED_3WEIGHTS" version="2">
+        <diffuse_texture file="units/payday2_cash/safe_room/cash_mull_df"/>
+        <variable value="dimlight" type="scalar" name="intensity"/>
+    </material>
+    <material name="mat_safe_glow_01" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM:SKINNED_2WEIGHTS:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <variable value="0.6" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+        <diffuse_texture file="units/pd2_dlc_lrm/props/lrm_prop_safe/lrm_safe_glow_01_green_df"/>
+        <variable value="0.14400005340576 0 0" type="vector3" name="uv0_speed"/>
+        <variable value="0" type="scalar" name="fadeout_distance"/>
+    </material>
+    <material name="mat_safe_glow_02" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM:SKINNED_2WEIGHTS:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <variable value="0.6" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+        <diffuse_texture file="units/payday2_cash/safes/textures/glow/safe_glow_02_df"/>
+        <variable value="0.14400005340576 0 0" type="vector3" name="uv0_speed"/>
+        <variable value="0" type="scalar" name="fadeout_distance"/>
+    </material>
+    <material name="mat_safe_glow_03" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM:SKINNED_2WEIGHTS:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <variable value="0.6" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+        <diffuse_texture file="units/payday2_cash/safes/textures/glow/safe_glow_03_df"/>
+        <variable value="0.14400005340576 0 0" type="vector3" name="uv0_speed"/>
+        <variable value="0" type="scalar" name="fadeout_distance"/>
+    </material>
+    <material name="mat_safe_glow_04" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM:SKINNED_2WEIGHTS:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <variable value="0.6" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+        <diffuse_texture file="units/payday2_cash/safes/textures/glow/safe_glow_04_df"/>
+        <variable value="0.14400005340576 0 0" type="vector3" name="uv0_speed"/>
+        <variable value="0" type="scalar" name="fadeout_distance"/>
+    </material>
+    <material name="mat_safe_glow_05" render_template="effect:BLEND_ADD:DIFFUSE0_TEXTURE:DIFFUSE0_UVANIM:SKINNED_2WEIGHTS:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <variable value="0.6" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+        <diffuse_texture file="units/payday2_cash/safes/textures/glow/safe_glow_05_df"/>
+        <variable value="0.14400005340576 0 0" type="vector3" name="uv0_speed"/>
+        <variable value="0" type="scalar" name="fadeout_distance"/>
+    </material>
+</materials>

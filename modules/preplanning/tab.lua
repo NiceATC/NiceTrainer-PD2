@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_PreplanningTab", function(trainer)
+    trainer:CreateTab("Pre-planning", { show_in = "preplanning" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

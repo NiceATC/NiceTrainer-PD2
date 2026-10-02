@@ -1,0 +1,7 @@
+<materials version="3">
+	<material name="mat_paper" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE">
+		<diffuse_texture file="units/payday2/props/gen_prop_loot_confidential_folder_event/gen_prop_loot_confidential_folder_event_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+</materials>

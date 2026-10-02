@@ -1,0 +1,6 @@
+dofile(NiceTrainer.ModPath .. "modules/settings/actions/configuration.lua")
+dofile(NiceTrainer.ModPath .. "modules/settings/actions/anticheat.lua")
+dofile(NiceTrainer.ModPath .. "modules/settings/actions/mod_hider.lua")
+dofile(NiceTrainer.ModPath .. "modules/settings/actions/anticrash.lua")
+dofile(NiceTrainer.ModPath .. "modules/settings/actions/theme.lua")
+dofile(NiceTrainer.ModPath .. "modules/settings/tab.lua")

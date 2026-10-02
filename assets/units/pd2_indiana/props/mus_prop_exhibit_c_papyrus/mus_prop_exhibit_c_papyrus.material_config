@@ -1,0 +1,16 @@
+<materials version="3">
+    <material name="mtr_papyrus" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_exhibit_c_papyrus/mus_prop_exhibit_c_papyrus_df"/>
+        <bump_normal_texture file="units/pd2_indiana/props/mus_prop_exhibit_c_papyrus/mus_prop_exhibit_c_papyrus_nm"/>
+        <variable value="0.0001" type="scalar" name="alpha_ref"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_papyrus_lod" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_indiana/props/mus_prop_exhibit_c_papyrus/mus_prop_exhibit_c_papyrus_df" mip="4"/>
+        <bump_normal_texture file="units/pd2_indiana/props/mus_prop_exhibit_c_papyrus/mus_prop_exhibit_c_papyrus_nm" mip="2"/>
+        <variable value="0.0001" type="scalar" name="alpha_ref"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

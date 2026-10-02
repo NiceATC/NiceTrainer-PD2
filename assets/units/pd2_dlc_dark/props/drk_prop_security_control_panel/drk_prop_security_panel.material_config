@@ -1,0 +1,24 @@
+<materials version="3">
+    <material name="mat_drk_prop_security_panel" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_security_control_panel_df"/>
+        <bump_normal_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_security_control_panel_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mat_drk_panel_screen_locked" render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION" version="2">
+        <variable value="sun" type="scalar" name="il_multiplier"/>
+        <self_illumination_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_panel_screen_locked_df"/>
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_panel_screen_locked_df"/>
+    </material>
+    <material name="mat_drk_panel_screen_unlocked" render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION" version="2">
+        <variable value="sun" type="scalar" name="il_multiplier"/>
+        <self_illumination_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_panel_screen_unlocked_df"/>
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_panel_screen_unlocked_df"/>
+    </material>
+    <material name="mat_jam" render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION" version="2">
+        <variable value="sun" type="scalar" name="il_multiplier"/>
+        <self_illumination_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_panel_glitch_df"/>
+        <diffuse_texture file="units/pd2_dlc_dark/props/drk_prop_security_control_panel/drk_prop_panel_glitch_df"/>
+    </material>
+    <material name="shadow_caster" render_template="shadow_caster_only" version="2"/>
+</materials>

@@ -1,0 +1,33 @@
+<materials version="3">
+    <material name="mat_case" render_template="generic:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/payday2/props/com_prop_jewelry_jewels/com_prop_jewelry_box_df"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <bump_normal_texture file="units/payday2/props/com_prop_jewelry_jewels/com_prop_jewelry_box_nm"/>
+    </material>
+    <material name="mat_auction_tag" render_template="generic:ALIGN_NORMAL_WORLD_Z:ALPHA_MASKED:DIFFUSE_TEXTURE:DOUBLE_SIDED:EXTERNAL_ALPHA_REF" version="2">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/auction_tag_no064_df"/>
+        <variable name="alpha_ref" value="0" type="scalar"/>
+    </material>
+    <material decal_material="glass_breakable" name="mat_glass" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" version="2">
+        <diffuse_texture file="units/payday2/glass/glass_clear_small_blue_df"/>
+        <opacity_texture file="units/payday2/glass/glass_clear_vehicle_op"/>
+        <reflection_texture type="cube" global_texture="current_global_texture"/>
+        <variable name="fresnel_settings" value="2 1 0.6" type="vector3"/>
+    </material>
+    <material name="mat_mood" render_template="generic:DIFFUSE_TEXTURE:DIFFUSE_UVANIM:NORMALMAP:SELF_ILLUMINATION:SELF_ILLUMINATION_BLOOM:SELF_ILLUMINATION_UVANIM" version="2">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_h_df"/>
+        <self_illumination_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_h_df"/>
+        <variable name="uv_speed" value="0.0050000008195639 0 0.050000000745058" type="vector3"/>
+        <variable name="il_multiplier" value="searchlight" type="scalar"/>
+        <variable name="il_bloom" value="0.2" type="scalar"/>
+        <bump_normal_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_h_nm"/>
+    </material>
+    <material name="mat_stand" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2">
+        <diffuse_texture file="units/pd2_dlc_uno/architecture/tiling_textures/uno_gold/uno_gold_df"/>
+        <material_texture file="units/pd2_dlc_uno/architecture/tiling_textures/uno_gold/uno_gold_gsma"/>
+        <bump_normal_texture file="units/pd2_dlc_uno/architecture/tiling_textures/uno_gold/uno_gold_nm"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold_strong_df" type="cubemap"/>
+        <variable value="0 1 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+</materials>

@@ -1,0 +1,7 @@
+<materials version="3" group="chca_pku_money">
+    <material version="2" unique="true" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:VERTEX_COLOR" name="mtr_money2">
+        <diffuse_texture file="units/payday2/pickups/gen_pku_money/gen_pku_money2_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

@@ -1,0 +1,5 @@
+Hooks:Add("NiceTrainer_InitTabs", "NiceTrainer_VisualsTab", function(trainer)
+    trainer:CreateTab("Visuals", { show_in = "heist" }, function(tr, name)
+        tr:BuildRegisteredActions(name)
+    end)
+end)

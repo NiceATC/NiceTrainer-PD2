@@ -1,0 +1,19 @@
+<materials version="3">
+	<material name="sah_prop_navigation_device_lod0" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_navigation_device/sah_prop_navigation_device_df"   mip="1"/>
+		<bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_navigation_device/sah_prop_navigation_device_nm"    mip="1"/>
+		<material_texture file="units/pd2_dlc_sah/props/sah_prop_navigation_device/sah_prop_navigation_device_gsma"   mip="1"/>
+		<reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+	<material name="sah_prop_navigation_device_lod1" render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_navigation_device/sah_prop_navigation_device_df" mip="4"  />
+		<bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_navigation_device/sah_prop_navigation_device_nm" mip="4"  />
+		<material_texture file="units/pd2_dlc_sah/props/sah_prop_navigation_device/sah_prop_navigation_device_gsma" mip="4"  />
+		<reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap" />
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+</materials>
+

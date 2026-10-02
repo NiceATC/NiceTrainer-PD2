@@ -1,0 +1,9 @@
+<materials version="3">
+    <material name="Default" render_template="generic" version="2"/>
+    <material name="mat_gambling_chips" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_casino/dev/cas_dev_gambling_chips/textures/cas_gambling_chips_df"/>
+        <bump_normal_texture file="units/pd2_dlc_casino/dev/cas_dev_gambling_chips/textures/cas_gambling_chips_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="0" type="scalar"/>
+    </material>
+</materials>

@@ -1,0 +1,40 @@
+<materials version="3" group="civ_male_dj_1">
+    <material name="mtr_head" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture 	file="units/payday2/characters/shared_textures/dj_head_nm"/>
+        <diffuse_texture 		file="units/payday2/characters/shared_textures/dj_head_df"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_head_lod1" render_template="generic:CONTOUR:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture 	file="units/payday2/characters/shared_textures/dj_head_nm" mip="1"/>
+        <diffuse_texture 		file="units/payday2/characters/shared_textures/dj_head_df" mip="1"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_head_lod2" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture 	file="units/payday2/characters/shared_textures/dj_head_nm" mip="4"/>
+        <diffuse_texture 		file="units/payday2/characters/shared_textures/dj_head_df" mip="4"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+
+    <material name="mtr_body" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture 	file="units/payday2/characters/shared_textures/dj_nm"/>
+        <diffuse_texture 		file="units/payday2/characters/shared_textures/dj_df"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_body_lod1" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture 	file="units/payday2/characters/shared_textures/dj_nm" mip="1"/>
+        <diffuse_texture 		file="units/payday2/characters/shared_textures/dj_df" mip="1"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="mtr_body_lod2" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP:RL_CIVILIANS:SKINNED_3WEIGHTS" unique="true" version="2">
+        <bump_normal_texture 	file="units/payday2/characters/shared_textures/dj_nm" mip="4"/>
+        <diffuse_texture 		file="units/payday2/characters/shared_textures/dj_df" mip="4"/>
+		<variable name="contour_color" value="0 1 0" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material name="shadow_caster" render_template="shadow_caster_only:SKINNED_1WEIGHT" version="2"/>
+</materials>

@@ -1,0 +1,17 @@
+<materials version="3">
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" name="mat_sah_prop_satchel1" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_survivors_satchel/sah_prop_survival_satchel_df" mip="1"/>
+        <bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_survivors_satchel/sah_prop_survival_satchel_nm" mip="1"/>
+        <material_texture file="units/pd2_dlc_sah/props/sah_prop_survivors_satchel/sah_prop_survival_satchel_gsma" mip="1"/>
+        <reflection_texture file="units/pd2_dlc_dah/environments/cubemaps/cubemap_white_highlight_blurry" type="cubemap"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+    <material render_template="shadow_caster_only" name="shadow_caster" version="2"/>
+	<material name="mtr_ring_lod3" render_template="generic:CONTOUR:DIFFUSE_TEXTURE" unique="true" version="2">
+		<diffuse_texture file="units/pd2_dlc_sah/props/sah_prop_display_case_ring/sah_prop_display_case_ring_df"  mip="1"/>
+		<bump_normal_texture file="units/pd2_dlc_sah/props/sah_prop_display_case_ring/sah_prop_display_case_ring_nm"  mip="1"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+	</material>
+</materials>

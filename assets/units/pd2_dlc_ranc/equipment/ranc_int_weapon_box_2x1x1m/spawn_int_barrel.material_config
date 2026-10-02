@@ -1,0 +1,8 @@
+<materials version="3">
+	<material render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" name="mtr_ak12" unique="true" version="2">
+        <diffuse_texture file="units/pd2_dlc_ranc/equipment/ranc_int_weapon_box_2x1x1m/ak12_atlas_df"/>
+        <bump_normal_texture file="units/pd2_dlc_ranc/equipment/ranc_int_weapon_box_2x1x1m/ak12_atlas_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>

@@ -1,0 +1,13 @@
+<materials version="3">
+    <material name="mat_dalmatian" version="2" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_o_df"/>
+        <bump_normal_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_o_nm"/>
+        <material_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/pku_auc_item_o_gsma"/>
+        <variable value="0 1 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+    </material>
+    <material name="mat_auction_tag" version="2" render_template="generic:ALIGN_NORMAL_WORLD_Z:ALPHA_MASKED:DIFFUSE_TEXTURE:DOUBLE_SIDED:EXTERNAL_ALPHA_REF">
+        <diffuse_texture file="units/pd2_dlc_auc/pickups/pku_auc_auction_items/auction_tag_no073_df"/>
+        <variable name="alpha_ref" value="0" type="scalar"/>
+    </material>
+</materials>

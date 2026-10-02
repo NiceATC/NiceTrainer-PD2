@@ -1,0 +1,41 @@
+<materials version="3">
+	<material decal_material="wood" name="mat_lxy_humidor" render_template="generic:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2">
+		<diffuse_texture file="units/pd2_dlc_fish/lxy_prop_humidor_01/lxy_prop_humidor_01_df" />
+		<material_texture file="units/pd2_dlc_fish/lxy_prop_humidor_01/lxy_prop_humidor_01_gsma" />
+		<bump_normal_texture file="units/pd2_dlc_fish/lxy_prop_humidor_01/lxy_prop_humidor_01_nm" />
+	</material>
+	<material decal_material="wood" name="mat_lxy_humidor_lod" render_template="generic:DIFFUSE_TEXTURE:GSMA_TEXTURE:NORMALMAP" version="2">
+		<diffuse_texture file="units/pd2_dlc_fish/lxy_prop_humidor_01/lxy_prop_humidor_01_df" mip="4" />
+		<material_texture file="units/pd2_dlc_fish/lxy_prop_humidor_01/lxy_prop_humidor_01_gsma" mip="4" />
+		<bump_normal_texture file="units/pd2_dlc_fish/lxy_prop_humidor_01/lxy_prop_humidor_01_nm" mip="4" />
+	</material>	
+	<material decal_material="glass_breakable" name="mat_glass" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" version="2">
+		<diffuse_texture file="units/payday2/glass/glass_clear_small_df" />
+		<opacity_texture file="units/payday2/glass/glass_clear_small_op" />
+		<variable value="0" type="scalar" name="alpha_ref" />
+		<reflection_texture type="cubemap" global_texture="current_global_texture"/>
+        <variable type="vector3" name="fresnel_settings" value="0.22999998927116 1 0.81000000238419"/>
+	</material>
+	<material name="hud_brackets" render_template="effect:DIFFUSE0_TEXTURE:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <diffuse_texture file="units/gui/gui_brackets_df"/>
+        <variable value="identity" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+    </material>
+    <material name="mtr_search" render_template="effect:DIFFUSE0_TEXTURE:VIEW_ANGLE_FALLOFF_OP" version="2">
+        <diffuse_texture file="units/gui/gui_generic_search_df"/>
+        <variable value="identity" type="scalar" name="intensity"/>
+        <variable value="1" type="scalar" name="falloff_exp"/>
+    </material>
+	<material name="mat_contour" render_template="generic:ALPHA_MASKED:CONTOUR:DIFFUSE_TEXTURE:OPACITY_TEXTURE" unique="true" version="2">
+        <diffuse_texture file="units/white_df"/>
+        <variable value="0 1 0" type="vector3" name="contour_color"/>
+        <variable value="1" type="scalar" name="contour_opacity"/>
+        <opacity_texture file="units/transparent_op"/>
+    </material>
+    <material name="mtr_money" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/payday2/pickups/gen_pku_money/gen_pku_money2_df"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+	<material name="shadow_caster" render_template="shadow_caster_only" version="2" />
+</materials>

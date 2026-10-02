@@ -1,0 +1,5 @@
+dofile(NiceTrainer.ModPath .. "modules/team/actions/players.lua")
+dofile(NiceTrainer.ModPath .. "modules/team/actions/team_buffs.lua")
+dofile(NiceTrainer.ModPath .. "modules/team/actions/team_fast_actions.lua")
+dofile(NiceTrainer.ModPath .. "modules/team/actions/network_protection.lua")
+dofile(NiceTrainer.ModPath .. "modules/team/tab.lua")

@@ -1,0 +1,14 @@
+<materials version="3">
+    <material render_template="generic:CONTOUR:CUBE_ENVIRONMENT_MAPPING:DIFFUSE_TEXTURE:NORMALMAP" name="mat_kiosk" unique="true" version="2">
+        <bump_normal_texture file="units/pd2_dlc_auc/equipment/auc_interactable_kiosk/auc_interactable_kiosk_nm"/>
+        <diffuse_texture file="units/pd2_dlc_auc/equipment/auc_interactable_kiosk/auc_interactable_kiosk_df"/>
+        <reflection_texture file="environments/cubemaps/cubemap_gold" type="cubemap"/>
+        <variable type="vector3" name="contour_color" value="1 0.39215689897537 0"/>
+        <variable type="scalar" name="contour_opacity" value="1"/>
+    </material>
+    <material render_template="generic:DIFFUSE_TEXTURE:SELF_ILLUMINATION" name="mat_screen" version="2">
+        <diffuse_texture file="units/pd2_dlc_auc/equipment/auc_interactable_kiosk/auc_interactable_kiosk_il"/>
+        <self_illumination_texture file="units/pd2_dlc_auc/equipment/auc_interactable_kiosk/auc_interactable_kiosk_il"/>
+        <variable type="scalar" name="il_multiplier" value="monitor"/>
+    </material>
+</materials>

@@ -1,0 +1,8 @@
+<materials version="3" group="keychain_cessna">
+    <material name="gen_pku_keychain_cessna_mat" render_template="generic:CONTOUR:DIFFUSE_TEXTURE:NORMALMAP" unique="true" version="2">
+        <diffuse_texture file="units/payday2/pickups/gen_pku_keychain_cessna/gen_pku_keychain_cessna_df"/>
+		<bump_normal_texture file="units/payday2/pickups/gen_pku_keychain_cessna/gen_pku_keychain_cessna_nm"/>
+		<variable name="contour_color" value="1 1 1" type="vector3"/>
+		<variable name="contour_opacity" value="1" type="scalar"/>
+    </material>
+</materials>
