@@ -42,7 +42,6 @@ function ESP.is_actual_bag(unit)
 
     -- 1. Check interaction tweak data: strictly dropped bags / body bags / carry drops
     if td == "carry_drop"
-       or td == "corpse_dispose"
        or td == "corpse_bag"
        or td == "body_bag"
        or td == "bodybag"
@@ -223,14 +222,9 @@ function ESP._raw_classify_interactive(unit)
         return nil
     end
 
-    -- Reject dead special enemies to prevent modded interactions (like Carry Stacker's 'corpse_dispose') from turning them into fake loot bags
+    -- Reject all dead characters to prevent modded interactions (like Carry Stacker) or base game body bag interactions from turning corpses into interactive items
     if unit:character_damage() and unit:character_damage():dead() then
-        if base and base._tweak_table then
-            local tw_str = tostring(base._tweak_table):lower()
-            if tw_str:find("taser") or tw_str:find("medic") or tw_str:find("spooc") or tw_str:find("tank") or tw_str:find("sniper") or tw_str:find("shield") or tw_str:find("phalanx") or tw_str:find("turret") then
-                return nil
-            end
-        end
+        return nil
     end
 
     local interaction = unit.interaction and unit:interaction()
@@ -403,19 +397,23 @@ function ESP._raw_classify_interactive(unit)
 end
 function ESP.ClassifyInteractive(unit)
     if not (unit and alive(unit)) then return nil end
-    local u_key = unit:key()
-    local cached = ESP._cached_classification[u_key]
-    if cached ~= nil then
-        if cached == false then return nil end
-        return cached[1], cached[2]
+    
+    local base_ext = unit:base() or (unit.interaction and unit:interaction())
+    if base_ext and base_ext._nt_classification ~= nil then
+        if base_ext._nt_classification == false then return nil end
+        return base_ext._nt_classification[1], base_ext._nt_classification[2]
     end
 
     local cat, tw = ESP._raw_classify_interactive(unit)
-    if cat then
-        ESP._cached_classification[u_key] = { cat, tw }
-    else
-        ESP._cached_classification[u_key] = false
+    
+    if base_ext then
+        if cat then
+            base_ext._nt_classification = { cat, tw }
+        else
+            base_ext._nt_classification = false
+        end
     end
+    
     return cat, tw
 end
 local MAX_LABEL = 22
@@ -581,14 +579,15 @@ function ESP.UnitHasKeycard(unit)
     -- 3. Spawn manager child units (attached keycard to belt/vest)
     if unit.spawn_manager and unit:spawn_manager() then
         local ok, sm = pcall(function() return unit:spawn_manager() end)
-        if ok and sm and sm.spawned_units then
-            local spawned = sm:spawned_units()
+        if ok and sm then
+            -- Usually it's sm:spawned_units() or sm._spawned_units
+            local spawned = sm.spawned_units and sm:spawned_units() or sm._spawned_units
             if spawned then
                 for _, entry in pairs(spawned) do
                     local child_u = type(entry) == "table" and entry.unit or entry
                     if child_u and type(child_u) == "userdata" and alive(child_u) then
                         local c_name = string.lower(tostring(child_u:name() or ""))
-                        if c_name:find("keycard", 1, true) or c_name:find("key_chain", 1, true) or c_name:find("pass_card", 1, true) or c_name:find("key", 1, true) then
+                        if c_name:find("keycard", 1, true) or c_name:find("key_chain", 1, true) or c_name:find("pass_card", 1, true) then
                             return true, "KEYCARD"
                         end
                         if child_u.interaction and child_u:interaction() then
@@ -613,7 +612,7 @@ function ESP.UnitHasKeycard(unit)
     local tw = unit:base() and unit:base()._tweak_table
     if tw then
         local tw_str = string.lower(tostring(tw))
-        if tw_str:find("bank_manager", 1, true) or tw_str:find("ranchmanager", 1, true) then
+        if tw_str:find("bank_manager", 1, true) or tw_str:find("ranchmanager", 1, true) or tw_str:find("cfo", 1, true) then
             return true, "KEYCARD (MANAGER)"
         end
     end

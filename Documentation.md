@@ -400,7 +400,54 @@ NiceTrainer:ShowConfirmModal(title, message, on_confirm_callback)
 
 ---
 
-## 6. Development Best Practices 
+## 6. Debug System API 🐛
+
+NiceTrainer includes a powerful, built-in asynchronous debug environment (`NiceTrainer.Debug`) to help module developers profile hooks, catch silent errors, trace UI interactions, and dump game state snapshots. All debug logs are safely written to `NiceTrainer_debug.log` using a protected `pcall` wrapper to prevent engine file lock crashes.
+
+### Debug Logger (`NiceTrainer.Debug`)
+You can use the debugger anywhere in your module scripts by referencing `NiceTrainer.Debug`.
+
+```lua
+local D = NiceTrainer.Debug
+if not D then return end
+
+-- Standard logging (with string.format support)
+D:Info("my_module", "Player spawned at %s", tostring(pos))
+D:Warn("my_module", "Configuration missing, using defaults")
+D:Error("my_module", "Critical engine fault!")
+
+-- Trace logs (Only visible if the user enables "Verbose Trace" in settings)
+D:Trace("my_module", "Executing frame %d", current_frame)
+```
+
+### Advanced Debug Utilities
+
+```lua
+-- Safely execute a function and automatically log its traceback if it fails
+D:Pcall("my_module", function()
+    risky_engine_call()
+end)
+
+-- Register a counter (Aggregated in snapshots)
+D:Count("enemies_spawned")
+
+-- Register a live Watcher (Visible in the in-game Live Panel overlay)
+D:Watch("my_variable", function()
+    return tostring(some_global_variable)
+end)
+
+-- Dump full NiceTrainer state, timings, and variables to the log file
+D:Snapshot("Checkpoint A")
+```
+
+### Automatic Protections
+- **Hook Profiler**: All `Hooks:Add()` calls with a `NiceTrainer_` prefix are automatically wrapped with a profiler that measures CPU time (ms) and catches exceptions to prevent cascading crashes.
+- **Action Tracing**: Callbacks registered via `RegisterAction` are monitored. If a user clicks a button and the callback fails, the error is suppressed, logged, and gracefully caught.
+- **Log Mirroring**: Any calls to the global `log()` function are captured and mirrored into the NiceTrainer Debug log (if enabled by the user).
+
+---
+
+## 7. Development Best Practices 💡
 
 1. **State Persistence**: Always provide a unique `id` when creating toggles or settings so values persist across game restarts.
 2. **Hook Cleanup**: Always store references to original engine functions in module-scoped or trainer tables (`NiceTrainer._orig_*`) to enable clean restoration when toggled off.

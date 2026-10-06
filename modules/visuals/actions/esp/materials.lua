@@ -59,7 +59,7 @@ function ESP.GetUnitMaterials(unit)
     -- 3. interaction._materials
     local inter = unit.interaction and unit:interaction()
     if inter then
-        if not inter._materials or #inter._materials == 0 then
+        if inter._init_materials and (not inter._materials or #inter._materials == 0) then
             pcall(function() inter:_init_materials() end)
         end
         if inter._materials then
@@ -151,14 +151,12 @@ function ESP.ApplyHighlightToUnit(target_u, enabled, color)
             if target_u:unit_data() then target_u:unit_data().ignore_portal = true end
             if managers.portal then managers.portal:remove_unit(target_u) end
             if managers.occlusion then managers.occlusion:remove_occlusion(target_u) end
-            if not target_u:visible() then target_u:set_visible(true) end
             if target_u.get_objects_by_type then
                 local models = target_u:get_objects_by_type(Idstring("model"))
                 if models then
                     for _, obj in pairs(models) do
                         if obj and alive(obj) then
                             if obj.set_skip_occlusion then obj:set_skip_occlusion(true) end
-                            if obj.set_visible then obj:set_visible(true) end
                         end
                     end
                 end
@@ -202,7 +200,7 @@ function ESP.SetMaterialHighlight(unit, enabled, color)
     local inter = unit.interaction and unit:interaction()
     if inter then
         if inter.set_contour_override then inter:set_contour_override(enabled and true or nil) end
-        if not inter._materials or #inter._materials == 0 then
+        if inter._init_materials and (not inter._materials or #inter._materials == 0) then
             pcall(function() inter:_init_materials() end)
         end
         if inter._materials then

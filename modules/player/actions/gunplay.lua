@@ -113,24 +113,22 @@ function NiceTrainer:IsWallPenetrationActive()
         or (self.Settings and self.Settings.aimbot_enabled == true and self.Settings.aimbot_shoot_through_walls == true)
 end
 
-function NiceTrainer:ApplyShootThroughWalls(state)
-    if state == nil then
-        state = self:IsWallPenetrationActive()
-    end
+function NiceTrainer:IsAPPenetrationActive()
+    return (self.Settings and self.Settings.ap_ammo == true)
+        or self:IsWallPenetrationActive()
+end
 
-    if state then
+function NiceTrainer:ApplyShootThroughWalls(state)
+    local wall = self:IsWallPenetrationActive()
+    local ap = self:IsAPPenetrationActive()
+
+    if wall or ap then
         if _G.RaycastWeaponBase and not NiceTrainer._orig_weapon_base.can_shoot_through_wall then
             NiceTrainer._orig_weapon_base.can_shoot_through_wall = RaycastWeaponBase.can_shoot_through_wall
             NiceTrainer._orig_weapon_base.can_shoot_through_shield = RaycastWeaponBase.can_shoot_through_shield
             NiceTrainer._orig_weapon_base.can_shoot_through_enemy = RaycastWeaponBase.can_shoot_through_enemy
             NiceTrainer._orig_weapon_base.armor_piercing_chance = RaycastWeaponBase.armor_piercing_chance
             NiceTrainer._orig_weapon_base.has_armor_piercing = RaycastWeaponBase.has_armor_piercing
-            
-            RaycastWeaponBase.can_shoot_through_wall = function() return true end
-            RaycastWeaponBase.can_shoot_through_shield = function() return true end
-            RaycastWeaponBase.can_shoot_through_enemy = function() return true end
-            RaycastWeaponBase.armor_piercing_chance = function() return 1 end
-            RaycastWeaponBase.has_armor_piercing = function() return true end
         end
         if _G.NewRaycastWeaponBase and not NiceTrainer._orig_weapon_base.new_can_shoot_through_wall then
             NiceTrainer._orig_weapon_base.new_can_shoot_through_wall = NewRaycastWeaponBase.can_shoot_through_wall
@@ -138,34 +136,33 @@ function NiceTrainer:ApplyShootThroughWalls(state)
             NiceTrainer._orig_weapon_base.new_can_shoot_through_enemy = NewRaycastWeaponBase.can_shoot_through_enemy
             NiceTrainer._orig_weapon_base.new_armor_piercing_chance = NewRaycastWeaponBase.armor_piercing_chance
             NiceTrainer._orig_weapon_base.new_has_armor_piercing = NewRaycastWeaponBase.has_armor_piercing
-            
-            NewRaycastWeaponBase.can_shoot_through_wall = function() return true end
-            NewRaycastWeaponBase.can_shoot_through_shield = function() return true end
-            NewRaycastWeaponBase.can_shoot_through_enemy = function() return true end
-            NewRaycastWeaponBase.armor_piercing_chance = function() return 1 end
-            NewRaycastWeaponBase.has_armor_piercing = function() return true end
         end
-    else
-        if _G.RaycastWeaponBase and NiceTrainer._orig_weapon_base.can_shoot_through_wall then
-            RaycastWeaponBase.can_shoot_through_wall = NiceTrainer._orig_weapon_base.can_shoot_through_wall
-            RaycastWeaponBase.can_shoot_through_shield = NiceTrainer._orig_weapon_base.can_shoot_through_shield
-            RaycastWeaponBase.can_shoot_through_enemy = NiceTrainer._orig_weapon_base.can_shoot_through_enemy
-            RaycastWeaponBase.armor_piercing_chance = NiceTrainer._orig_weapon_base.armor_piercing_chance
-            RaycastWeaponBase.has_armor_piercing = NiceTrainer._orig_weapon_base.has_armor_piercing
-            
+    end
+    
+    if _G.RaycastWeaponBase and NiceTrainer._orig_weapon_base.can_shoot_through_wall then
+        RaycastWeaponBase.can_shoot_through_wall = wall and function() return true end or NiceTrainer._orig_weapon_base.can_shoot_through_wall
+        RaycastWeaponBase.can_shoot_through_shield = ap and function() return true end or NiceTrainer._orig_weapon_base.can_shoot_through_shield
+        RaycastWeaponBase.can_shoot_through_enemy = ap and function() return true end or NiceTrainer._orig_weapon_base.can_shoot_through_enemy
+        RaycastWeaponBase.armor_piercing_chance = ap and function() return 1 end or NiceTrainer._orig_weapon_base.armor_piercing_chance
+        RaycastWeaponBase.has_armor_piercing = ap and function() return true end or NiceTrainer._orig_weapon_base.has_armor_piercing
+        
+        if not wall and not ap then
             NiceTrainer._orig_weapon_base.can_shoot_through_wall = nil
             NiceTrainer._orig_weapon_base.can_shoot_through_shield = nil
             NiceTrainer._orig_weapon_base.can_shoot_through_enemy = nil
             NiceTrainer._orig_weapon_base.armor_piercing_chance = nil
             NiceTrainer._orig_weapon_base.has_armor_piercing = nil
         end
-        if _G.NewRaycastWeaponBase and NiceTrainer._orig_weapon_base.new_can_shoot_through_wall then
-            NewRaycastWeaponBase.can_shoot_through_wall = NiceTrainer._orig_weapon_base.new_can_shoot_through_wall
-            NewRaycastWeaponBase.can_shoot_through_shield = NiceTrainer._orig_weapon_base.new_can_shoot_through_shield
-            NewRaycastWeaponBase.can_shoot_through_enemy = NiceTrainer._orig_weapon_base.new_can_shoot_through_enemy
-            NewRaycastWeaponBase.armor_piercing_chance = NiceTrainer._orig_weapon_base.new_armor_piercing_chance
-            NewRaycastWeaponBase.has_armor_piercing = NiceTrainer._orig_weapon_base.new_has_armor_piercing
-            
+    end
+    
+    if _G.NewRaycastWeaponBase and NiceTrainer._orig_weapon_base.new_can_shoot_through_wall then
+        NewRaycastWeaponBase.can_shoot_through_wall = wall and function() return true end or NiceTrainer._orig_weapon_base.new_can_shoot_through_wall
+        NewRaycastWeaponBase.can_shoot_through_shield = ap and function() return true end or NiceTrainer._orig_weapon_base.new_can_shoot_through_shield
+        NewRaycastWeaponBase.can_shoot_through_enemy = ap and function() return true end or NiceTrainer._orig_weapon_base.new_can_shoot_through_enemy
+        NewRaycastWeaponBase.armor_piercing_chance = ap and function() return 1 end or NiceTrainer._orig_weapon_base.new_armor_piercing_chance
+        NewRaycastWeaponBase.has_armor_piercing = ap and function() return true end or NiceTrainer._orig_weapon_base.new_has_armor_piercing
+        
+        if not wall and not ap then
             NiceTrainer._orig_weapon_base.new_can_shoot_through_wall = nil
             NiceTrainer._orig_weapon_base.new_can_shoot_through_shield = nil
             NiceTrainer._orig_weapon_base.new_can_shoot_through_enemy = nil
@@ -183,14 +180,15 @@ function NiceTrainer:ApplyShootThroughWalls(state)
             for _, selection in pairs(selections) do
                 local base = selection and selection.unit and alive(selection.unit) and selection.unit:base()
                 if base and base.override_shoot_through then
-                    if state then
-                        base:override_shoot_through(true, true, true)
+                    if wall or ap then
+                        -- Arguments mapped to wall, shield, enemy
+                        base:override_shoot_through(wall and true or false, ap and true or false, ap and true or false)
                     else
                         base:override_shoot_through(nil, nil, nil)
                     end
                 end
                 if base then
-                    if state then
+                    if wall then
                         if base._ht_original_bullet_slotmask == nil then
                             base._ht_original_bullet_slotmask = base._bullet_slotmask
                         end
@@ -206,6 +204,10 @@ function NiceTrainer:ApplyShootThroughWalls(state)
 end
 
 local function apply_shoot_through_walls(state)
+    NiceTrainer:ApplyShootThroughWalls(state)
+end
+
+local function apply_ap_ammo(state)
     NiceTrainer:ApplyShootThroughWalls(state)
 end
 
@@ -276,6 +278,7 @@ NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", ba
 NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", badge = "client", id = "max_accuracy", text = "Max Accuracy (No Spread)", tooltip = "Your weapons have no spread.", default = false, callback = apply_no_spread })
 NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", badge = "client", id = "instant_reload", text = "Instant Reload", tooltip = "Reload your weapons instantly.", default = false, callback = apply_instant_reload })
 NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", badge = "client", id = "instant_swap", text = "Instant Swap", tooltip = "Swap weapons instantly.", default = false, callback = apply_instant_swap })
+NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", badge = "client", id = "ap_ammo", text = "AP Ammo (Pierce Shields)", tooltip = "Your bullets penetrate shields and enemies.", default = false, callback = apply_ap_ammo })
 NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", badge = "client", id = "shoot_through_walls", text = "Shoot Through Walls", tooltip = "Your bullets penetrate all walls, shields, and enemies.", default = false, callback = apply_shoot_through_walls })
 NiceTrainer:RegisterAction("Player", { type = "toggle", category = "Gunplay", badge = "client", id = "one_shot_kill", text = "One Hit Kill", tooltip = "Kill any enemy with a single shot or melee hit.", default = false, callback = apply_damage_multiplier })
 
@@ -318,6 +321,7 @@ local function reapply_all_gunplay()
     if NiceTrainer.Settings.max_accuracy then apply_no_spread(true) end
     if NiceTrainer.Settings.instant_reload then apply_instant_reload(true) end
     if NiceTrainer.Settings.instant_swap then apply_instant_swap(true) end
+    if NiceTrainer.Settings.ap_ammo then apply_ap_ammo(true) end
     if NiceTrainer.Settings.shoot_through_walls then apply_shoot_through_walls(true) end
     if NiceTrainer.Settings.one_shot_kill or NiceTrainer.Settings.enable_damage_multiplier then apply_damage_multiplier(true) end
     if NiceTrainer.Settings.enable_fire_rate then

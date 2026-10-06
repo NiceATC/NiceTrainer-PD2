@@ -355,6 +355,8 @@ function NiceTrainer:CanRunTabAction(tab_name)
     if not tab then return false end
     local opt = tab.options or {}
     
+    if type(opt.condition) == "function" and not opt.condition() then return false end
+
     local is_heist = self:IsInHeist()
     local is_menu = self:IsInMenu()
     local is_preplanning = self:IsInPrePlanning()

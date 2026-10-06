@@ -92,9 +92,9 @@ function ESP.FlushUnusedMarkers()
     end
 end
 function ESP.UpdateMarkers()
-    if not NiceTrainer.Settings.esp_enabled or not NiceTrainer._marker_ws then return end
+    if not NiceTrainer.Settings.esp_enabled or not NiceTrainer._marker_ws or not alive(NiceTrainer._marker_ws) then return end
     local cam = managers.viewport and managers.viewport:get_current_camera()
-    if not cam then return end
+    if not cam or not alive(cam) then return end
     local cam_pos = cam:position()
     local cam_rot = cam:rotation()
     local cam_fwd = cam_rot:y()
@@ -109,9 +109,9 @@ function ESP.UpdateMarkers()
         local m  = markers[i]
         local sk = "esp_show_" .. m.c_type
         local u  = m.unit
-        if not (u and alive(u)) or not NiceTrainer.Settings[sk] then
-            if alive(m.panel) then m.panel:parent():remove(m.panel) end
-            if alive(u) then NiceTrainer._esp_markers_map[u:key()] = nil end
+        if not (u and alive(u)) or not NiceTrainer.Settings[sk] or not alive(m.panel) or not alive(m.dist) then
+            if alive(m.panel) and alive(m.panel:parent()) then m.panel:parent():remove(m.panel) end
+            if alive(u) and NiceTrainer._esp_markers_map then NiceTrainer._esp_markers_map[u:key()] = nil end
             table.remove(markers, i)
             count = count - 1
         else

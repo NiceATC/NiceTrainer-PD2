@@ -51,7 +51,15 @@ if not NiceTrainer._esp_hook_added then
         NiceTrainer._esp_acc = (NiceTrainer._esp_acc or 0) + dt
         if NiceTrainer._esp_acc >= (NiceTrainer.Settings.esp_refresh_rate or 1.0) then
             NiceTrainer._esp_acc = 0
-            ESP.ApplyESP()
+            local ok_apply, err_apply = pcall(ESP.ApplyESP)
+            if not ok_apply then
+                ESP._logged_errors = ESP._logged_errors or {}
+                local msg = tostring(err_apply)
+                if not ESP._logged_errors[msg] then
+                    ESP._logged_errors[msg] = true
+                    log("[NiceTrainer ESP] ApplyESP error: " .. msg)
+                end
+            end
         end
     end)
     

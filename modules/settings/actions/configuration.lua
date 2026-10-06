@@ -68,5 +68,25 @@ NiceTrainer:RegisterAction("Settings", {
     end
 })
 
+NiceTrainer:RegisterAction("Settings", {
+    type = "toggle",
+    category = "Configuration",
+    id = "debug_tab_enabled",
+    no_bind = true,
+    text = "Show Debug Tab",
+    tooltip = "Enables the Debug tab in the trainer menu.",
+    default = false,
+    save = true,
+    callback = function(state)
+        if NiceTrainer._debug_tab_state_last == state then return end
+        NiceTrainer._debug_tab_state_last = state
+        
+        NiceTrainer.Settings.debug_tab_enabled = state
+        if NiceTrainer.RefreshTabsVisibility then
+            NiceTrainer:RefreshTabsVisibility()
+        end
+    end
+})
+
 
 

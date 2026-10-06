@@ -25,6 +25,7 @@ function ESP.CleanAllContoursOnLevelLoad()
     ESP._cached_unit_materials = {}
     ESP._cached_classification = {}
     ESP._cached_static_props = nil
+    ESP._client_inter_cache = nil
     ESP.ClearMarkers()
 
     -- 1. Sweep all NPCs, enemies, civilians, group AI & turrets
@@ -155,16 +156,7 @@ function ESP.CleanAllContoursOnLevelLoad()
     -- 3. Sweep ESP._highlighted_units: clear all highlights and contours
     for u_key, unit in pairs(ESP._highlighted_units) do
         if alive(unit) then
-            local inter = unit.interaction and unit:interaction()
-            local base = unit:base() or inter
-            if base and base._nt_esp_contour then
-                if unit:contour() then
-                    for _, ct in ipairs(ESP.ALL_ITEM_KEYS) do pcall(unit:contour().remove, unit:contour(), ct) end
-                    for _, ct in ipairs(ESP.NPC_KEYS) do pcall(unit:contour().remove, unit:contour(), ct) end
-                end
-                base._nt_esp_contour = nil
-            end
-            ESP.SetMaterialHighlight(unit, false)
+            ESP.clean_unit_esp(unit)
         end
     end
     ESP._highlighted_units = {}
@@ -214,6 +206,8 @@ function ESP.ApplyESP(force_clean)
         return
     end
 
+    ESP._apply_count = (ESP._apply_count or 0) + 1
+    ESP._stage = "npc"
     -- Mark existing markers as unseen for this refresh cycle
     if NiceTrainer._esp_markers then
         for _, m in ipairs(NiceTrainer._esp_markers) do
@@ -293,15 +287,16 @@ function ESP.ApplyESP(force_clean)
     end
 
     for _, unit in ipairs(npc_units) do
+        local ok_npc, err_npc = pcall(function()
         if alive(unit) then
             -- If this unit is a camera, DO NOT process or clean it in the NPC loop!
             local u_base = unit:base()
             if u_base and (u_base.is_security_camera or u_base.is_spy_camera) then
-                goto continue_npc
+                return
             end
             local u_name_check = tostring(unit:name() or ""):lower()
             if u_name_check:find("camera", 1, true) or u_name_check:find("cctv", 1, true) then
-                goto continue_npc
+                return
             end
 
             if ESP.IsFriendlyUnit(unit) then
@@ -343,7 +338,15 @@ function ESP.ApplyESP(force_clean)
                 end
             end
         end
-        ::continue_npc::
+        end)
+        if not ok_npc then
+            ESP._logged_errors = ESP._logged_errors or {}
+            local msg = tostring(err_npc)
+            if not ESP._logged_errors[msg] then
+                ESP._logged_errors[msg] = true
+                log("[NiceTrainer ESP] npc loop error: " .. msg)
+            end
+        end
     end
 
     -- Sweep corpses to ensure no lingering contours or material highlights remain on dead bodies
@@ -358,6 +361,7 @@ function ESP.ApplyESP(force_clean)
         end
     end
 
+    ESP._stage = "cameras"
     -- 2. Security Cameras (Active & Operational Only)
     local checked_cams = {}
     local cam_list = {}
@@ -438,6 +442,7 @@ function ESP.ApplyESP(force_clean)
         end
     end
 
+    ESP._stage = "items:collect"
     -- 3. Loot, Mission Items, Power Boxes, Computers, Doors, Deployables & Objectives
     local processed_items = {}
     for k, _ in pairs(checked_cams) do
@@ -468,17 +473,50 @@ function ESP.ApplyESP(force_clean)
                 if alive(u) and not processed_items[u:key()] then
                     local un = tostring(u:name() or ""):lower()
                     local inter = u.interaction and u:interaction()
-                    local td = inter and inter.tweak_data and tostring(inter.tweak_data):lower() or ""
-                    if un:find("laptop", 1, true) or un:find("notebook", 1, true) or un:find("computer", 1, true)
-                       or un:find("hackpad", 1, true) or un:find("hack_pad", 1, true) or un:find("fuse_box", 1, true)
-                       or un:find("circuit_breaker", 1, true) or un:find("power_box", 1, true) or un:find("security_box", 1, true)
-                       or un:find("atm", 1, true) or un:find("bank_machine", 1, true)
-                       or td:find("laptop", 1, true) or td:find("password", 1, true) or td:find("notebook", 1, true)
-                       or td:find("hackpad", 1, true) or td:find("hack_pad", 1, true) or td:find("fuse", 1, true)
-                    then
-                        processed_items[u:key()] = true
-                        table.insert(item_units, u)
+                    if Network:is_server() then
+                        -- Host: Use the original optimized string-matching filter (mission scripts already give us the rest)
+                        local td = inter and inter.tweak_data and tostring(inter.tweak_data):lower() or ""
+                        if un:find("laptop", 1, true) or un:find("notebook", 1, true) or un:find("computer", 1, true)
+                           or un:find("hackpad", 1, true) or un:find("hack_pad", 1, true) or un:find("fuse_box", 1, true)
+                           or un:find("circuit_breaker", 1, true) or un:find("power_box", 1, true) or un:find("security_box", 1, true)
+                           or un:find("atm", 1, true) or un:find("bank_machine", 1, true)
+                           or td:find("laptop", 1, true) or td:find("password", 1, true) or td:find("notebook", 1, true)
+                           or td:find("hackpad", 1, true) or td:find("hack_pad", 1, true) or td:find("fuse", 1, true)
+                        then
+                            processed_items[u:key()] = true
+                            table.insert(item_units, u)
+                        end
+                    else
+                        -- Client: the mission tables are incomplete, so grab all interactables
+                        if inter or un:find("atm", 1, true) or un:find("bank_machine", 1, true) then
+                            processed_items[u:key()] = true
+                            table.insert(item_units, u)
+                        end
                     end
+                end
+            end
+        end
+        if not Network:is_server() then
+            -- Client: interactions flagged host_only are never registered in managers.interaction
+            -- (set_active forces them inactive), so scan every unit that owns an interaction extension.
+            local now = TimerManager:game():time()
+            if not ESP._client_inter_cache or now - (ESP._client_inter_cache_t or 0) > 3 then
+                local cache = {}
+                local all_units = World:find_units_quick("all")
+                if all_units then
+                    for _, u in ipairs(all_units) do
+                        if alive(u) and u.interaction and u:interaction() then
+                            table.insert(cache, u)
+                        end
+                    end
+                end
+                ESP._client_inter_cache = cache
+                ESP._client_inter_cache_t = now
+            end
+            for _, u in ipairs(ESP._client_inter_cache) do
+                if alive(u) and not processed_items[u:key()] then
+                    processed_items[u:key()] = true
+                    table.insert(item_units, u)
                 end
             end
         end
@@ -490,22 +528,65 @@ function ESP.ApplyESP(force_clean)
         end
     end
 
+    ESP._stage = "items:loop"
+    local dbg = { total = #item_units, enabled_ok = 0, valid = 0, cat = 0, expected = 0, no_enabled = 0, mission_dis = 0 }
+    ESP._dbg = dbg
     for _, unit in ipairs(item_units) do
+        local ok_unit, err_unit = pcall(function()
         if alive(unit) then
             local is_wl, wl_cat = ESP.is_whitelisted_always_visible(unit)
             local is_unit_ok = is_wl or unit:enabled()
 
             local u_data = unit:unit_data()
             local u_id = u_data and u_data.unit_id
-            local is_mission_disabled = (not is_wl) and u_id and managers.game_play_central and managers.game_play_central._mission_disabled_units and managers.game_play_central._mission_disabled_units[u_id]
+            
+            local is_mission_disabled = false
+            if not is_wl and u_id and managers.game_play_central and managers.game_play_central._mission_disabled_units then
+                is_mission_disabled = managers.game_play_central._mission_disabled_units[u_id] and true or false
+                -- Clients often fail to clear _mission_disabled_units when the host enables dynamic loot/props.
+                -- However, if we blindly bypass it, we mark ghost props (planks, crowbars) that never spawned.
+                -- The only safe way to bypass it is to check if the host synced the interaction state as active.
+                if is_mission_disabled and not Network:is_server() then
+                    local inter = unit.interaction and unit:interaction()
+                    if inter and (inter:active() or inter._active) then
+                        is_mission_disabled = false
+                    end
+                end
+            end
+            
+            if unit:slot() == 0 then
+                is_unit_ok = false
+            end
+            
+            if not is_unit_ok then dbg.no_enabled = dbg.no_enabled + 1 end
+            if is_mission_disabled then dbg.mission_dis = dbg.mission_dis + 1 end
 
             if is_unit_ok and not is_mission_disabled then
+                dbg.enabled_ok = dbg.enabled_ok + 1
                 local inter = unit.interaction and unit:interaction()
+                
+                local is_wl, wl_cat = ESP.is_whitelisted_always_visible(unit)
+                local cat, tw = ESP.ClassifyInteractive(unit)
+                if not cat and is_wl then
+                    cat = wl_cat
+                    tw = wl_cat
+                end
+
                 local is_active = false
                 if inter then
-                    local int_disabled = (inter.disabled and inter:disabled()) or inter._disabled or (inter._active == false)
-                    is_active = not int_disabled
+                    local is_disabled = (inter.disabled and inter:disabled()) or inter._disabled
+                    local inactive = (inter._active == false)
+
+                    if inactive and not Network:is_server() then
+                        -- Clients often have inter._active == false for valid spawned loot, bags, planks, etc.
+                        if cat or inter._host_only then
+                            inactive = false
+                        end
+                    end
+
+                    is_active = not (is_disabled or inactive)
                 end
+                
                 local is_atm = false
                 local u_name = tostring(unit:name() or ""):lower()
                 if u_name:find("atm", 1, true) or u_name:find("bank_machine", 1, true) then
@@ -513,13 +594,6 @@ function ESP.ApplyESP(force_clean)
                 end
                 local is_bag = ESP.is_actual_bag(unit)
                 local is_c4 = ESP.is_c4_mission_item(unit)
-
-                local is_wl, wl_cat = ESP.is_whitelisted_always_visible(unit)
-                local cat, tw = ESP.ClassifyInteractive(unit)
-                if not cat and is_wl then
-                    cat = wl_cat
-                    tw = wl_cat
-                end
 
                 local is_power = (cat == "mission_power")
 
@@ -541,7 +615,9 @@ function ESP.ApplyESP(force_clean)
                     is_valid = is_bag or is_c4 or is_atm or is_goat or cat == "mission_computer" or cat == "mission_power"
                 end
 
+                if cat then dbg.cat = dbg.cat + 1 end
                 if is_valid and cat then
+                    dbg.valid = dbg.valid + 1
                     local expected = nil
                     local c = nil
                     
@@ -564,12 +640,12 @@ function ESP.ApplyESP(force_clean)
                     local base_ext = unit:base() or inter
                     if base_ext then
                         if expected then
+                            dbg.expected = dbg.expected + 1
                             current_highlighted_keys[unit:key()] = true
                             pcall(function()
                                 if unit:unit_data() then unit:unit_data().ignore_portal = true end
                                 if managers.portal then managers.portal:remove_unit(unit) end
                                 if managers.occlusion then managers.occlusion:remove_occlusion(unit) end
-                                if not unit:visible() then unit:set_visible(true) end
                             end)
                             if unit:contour() then
                                 if base_ext._nt_esp_contour ~= expected then
@@ -611,6 +687,24 @@ function ESP.ApplyESP(force_clean)
                     end
                 end
             end
+        end
+        end)
+        if not ok_unit then
+            ESP._logged_errors = ESP._logged_errors or {}
+            local msg = tostring(err_unit)
+            if not ESP._logged_errors[msg] then
+                ESP._logged_errors[msg] = true
+                log("[NiceTrainer ESP] item loop error: " .. msg)
+            end
+        end
+    end
+
+    do
+        local now = TimerManager:game():time()
+        if now - (ESP._dbg_log_t or 0) > 10 then
+            ESP._dbg_log_t = now
+            log(string.format("[NiceTrainer ESP] items(server=%s) total=%d enabled_ok=%d no_enabled=%d mission_dis=%d cat=%d valid=%d expected=%d",
+                tostring(Network:is_server()), dbg.total, dbg.enabled_ok, dbg.no_enabled, dbg.mission_dis, dbg.cat, dbg.valid, dbg.expected))
         end
     end
 
@@ -678,22 +772,24 @@ function ESP.ApplyESP(force_clean)
     for u_key, old_unit in pairs(ESP._highlighted_units) do
         if not current_highlighted_keys[u_key] then
             if alive(old_unit) then
-                local old_inter = old_unit.interaction and old_unit:interaction()
-                local old_base = old_unit:base() or old_inter
-                if old_base and old_base._nt_esp_contour then
-                    if old_unit:contour() then
-                        for _, ct in ipairs(ESP.ALL_ITEM_KEYS) do pcall(old_unit:contour().remove, old_unit:contour(), ct) end
-                        for _, ct in ipairs(ESP.NPC_KEYS) do pcall(old_unit:contour().remove, old_unit:contour(), ct) end
-                    end
-                    old_base._nt_esp_contour = nil
-                end
-                ESP.SetMaterialHighlight(old_unit, false)
+                ESP.clean_unit_esp(old_unit)
             else
                 ESP._highlighted_units[u_key] = nil
             end
         end
     end
 
+    ESP._stage = "done"
     -- 7. Flush unused markers from previous ticks (zero panel recreation cost)
     ESP.FlushUnusedMarkers()
+end
+
+-- Debug system integration (live values in the Debug panel)
+if NiceTrainer.Debug then
+    NiceTrainer.Debug:Watch("esp", function()
+        local d = ESP._dbg
+        local s = string.format("runs=%d stage=%s", ESP._apply_count or 0, tostring(ESP._stage))
+        if d then s = s .. string.format(" items %d/ok%d/cat%d/val%d/exp%d", d.total, d.enabled_ok, d.cat, d.valid, d.expected) end
+        return s
+    end)
 end

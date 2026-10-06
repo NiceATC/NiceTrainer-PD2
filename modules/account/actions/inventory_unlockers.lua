@@ -74,29 +74,60 @@ local function is_no_mod_limit_enabled()
     return NiceTrainer and NiceTrainer.Settings and NiceTrainer.Settings.no_weap_mod_limit == true
 end
 
-if _G.BlackMarketManager and not _G.BlackMarketManager._nt_mod_limit_hooked then
-    _G.BlackMarketManager._nt_mod_limit_hooked = true
-    local orig_get_modify_weapon_consequence = BlackMarketManager.get_modify_weapon_consequence
-    function BlackMarketManager:get_modify_weapon_consequence(...)
-        if is_no_mod_limit_enabled() then
-            return {}, {}
+local _forbids_backup = {}
+local function apply_mod_limits(state)
+    local factory = tweak_data and tweak_data.weapon and tweak_data.weapon.factory
+    if not factory or not factory.parts then return end
+    
+    if state then
+        for part_id, part in pairs(factory.parts) do
+            if part.forbids then
+                _forbids_backup[part_id] = part.forbids
+                part.forbids = nil
+            end
         end
-        return orig_get_modify_weapon_consequence(self, ...)
+    else
+        for part_id, forbids in pairs(_forbids_backup) do
+            if factory.parts[part_id] then
+                factory.parts[part_id].forbids = forbids
+            end
+        end
+        _forbids_backup = {}
     end
 end
 
-if _G.WeaponFactoryManager and not _G.WeaponFactoryManager._nt_mod_limit_hooked then
-    _G.WeaponFactoryManager._nt_mod_limit_hooked = true
-    local orig_change_part_blueprint_only = WeaponFactoryManager.change_part_blueprint_only
-    function WeaponFactoryManager:change_part_blueprint_only(factory_id, part_id, blueprint, remove_part, ...)
+if _G.WeaponFactoryTweakData then
+    Hooks:PostHook(WeaponFactoryTweakData, "init", "NiceTrainer_ModLimitTweak", function(self)
         if is_no_mod_limit_enabled() then
-            local factory = tweak_data.weapon.factory
-            local part = factory and factory.parts and factory.parts[part_id]
-            if not part then return false end
-            table.insert(blueprint, part_id)
-            return true
+            -- Atrasar a remoção para garantir que o tweak data termine de inicializar outras dependências
+            DelayedCalls:Add("NiceTrainer_ModLimit_Delay", 0.1, function()
+                apply_mod_limits(true)
+            end)
         end
-        return orig_change_part_blueprint_only(self, factory_id, part_id, blueprint, remove_part, ...)
+    end)
+end
+
+-- Tentar aplicar imediatamente caso o jogo já tenha carregado o tweak_data
+if tweak_data and tweak_data.weapon and tweak_data.weapon.factory then
+    if is_no_mod_limit_enabled() then
+        apply_mod_limits(true)
+    end
+end
+
+-- Fix de Softlock: Evitar engine freeze do Payday 2 ao tentar renderizar peças forçadas em nodes 3D inexistentes (ex: silenciador na Judge)
+if _G.WeaponFactoryManager and not _G.WeaponFactoryManager._nt_softlock_hooked then
+    _G.WeaponFactoryManager._nt_softlock_hooked = true
+    local orig_spawn_and_link_unit = WeaponFactoryManager._spawn_and_link_unit
+    function WeaponFactoryManager:_spawn_and_link_unit(u_name, a_obj, third_person, link_to_unit, ...)
+        if link_to_unit and a_obj then
+            local id_a_obj = type(a_obj) == "string" and Idstring(a_obj) or a_obj
+            -- Se a peça base (cano/arma) não possuir o ponto de encaixe (node 3D) que esse mod exige, o motor do jogo congela.
+            -- Para evitar isso, redirecionamos o encaixe para a raiz da arma caso o node falte.
+            if not link_to_unit:get_object(id_a_obj) then
+                a_obj = link_to_unit:orientation_object():name()
+            end
+        end
+        return orig_spawn_and_link_unit(self, u_name, a_obj, third_person, link_to_unit, ...)
     end
 end
 
@@ -112,6 +143,7 @@ NiceTrainer:RegisterAction("Account", {
     callback = function(state)
         NiceTrainer.Settings.no_weap_mod_limit = state
         NiceTrainer:Save()
+        apply_mod_limits(state)
     end
 })
 
