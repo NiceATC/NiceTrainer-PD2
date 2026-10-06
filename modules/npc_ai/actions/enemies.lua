@@ -65,18 +65,18 @@ local function each_turret(fn)
 end
 
 local function freeze_all()
-    each_enemy(function(u) if u:brain():is_active() then u:brain():set_active(false) end end)
-    each_civilian(function(u) if u:brain():is_active() then u:brain():set_active(false) end end)
+    each_enemy(function(u) if u:brain() and type(u:brain().is_active) == "function" and u:brain():is_active() then u:brain():set_active(false) end end)
+    each_civilian(function(u) if u:brain() and type(u:brain().is_active) == "function" and u:brain():is_active() then u:brain():set_active(false) end end)
     each_camera(function(u)
         if u:base()._detection_interval ~= 999999999 then u:base()._detection_interval = 999999999 end
     end)
-    each_turret(function(u) if u:brain():is_active() then u:brain():set_active(false) end end)
+    each_turret(function(u) if u:brain() and type(u:brain().is_active) == "function" and u:brain():is_active() then u:brain():set_active(false) end end)
 end
 
 local function unfreeze_all()
     each_enemy(function(u)
         local brain = u:brain()
-        if brain and not brain:is_active() then
+        if brain and type(brain.is_active) == "function" and not brain:is_active() then
             pcall(function()
                 brain:set_active(true)
                 brain:set_update_enabled_state(true)
@@ -85,7 +85,7 @@ local function unfreeze_all()
     end)
     each_civilian(function(u)
         local brain = u:brain()
-        if brain and not brain:is_active() then
+        if brain and type(brain.is_active) == "function" and not brain:is_active() then
             pcall(function()
                 brain:set_active(true)
                 brain:set_update_enabled_state(true)
@@ -103,7 +103,7 @@ local function unfreeze_all()
         end
     end)
     each_turret(function(u)
-        if u:brain() and not u:brain():is_active() then
+        if u:brain() and type(u:brain().is_active) == "function" and not u:brain():is_active() then
             u:brain():set_active(true)
         end
     end)

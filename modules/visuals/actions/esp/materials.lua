@@ -59,7 +59,7 @@ function ESP.GetUnitMaterials(unit)
     -- 3. interaction._materials
     local inter = unit.interaction and unit:interaction()
     if inter then
-        if inter._init_materials and (not inter._materials or #inter._materials == 0) then
+        if type(inter._init_materials) == "function" and (not inter._materials or #inter._materials == 0) then
             pcall(function() inter:_init_materials() end)
         end
         if inter._materials then
@@ -200,7 +200,7 @@ function ESP.SetMaterialHighlight(unit, enabled, color)
     local inter = unit.interaction and unit:interaction()
     if inter then
         if inter.set_contour_override then inter:set_contour_override(enabled and true or nil) end
-        if inter._init_materials and (not inter._materials or #inter._materials == 0) then
+        if type(inter._init_materials) == "function" and (not inter._materials or #inter._materials == 0) then
             pcall(function() inter:_init_materials() end)
         end
         if inter._materials then

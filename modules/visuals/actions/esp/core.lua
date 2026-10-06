@@ -703,8 +703,10 @@ function ESP.ApplyESP(force_clean)
         local now = TimerManager:game():time()
         if now - (ESP._dbg_log_t or 0) > 10 then
             ESP._dbg_log_t = now
-            log(string.format("[NiceTrainer ESP] items(server=%s) total=%d enabled_ok=%d no_enabled=%d mission_dis=%d cat=%d valid=%d expected=%d",
-                tostring(Network:is_server()), dbg.total, dbg.enabled_ok, dbg.no_enabled, dbg.mission_dis, dbg.cat, dbg.valid, dbg.expected))
+            if NiceTrainer.Settings.debug_enabled then
+                log(string.format("[NiceTrainer ESP] items(server=%s) total=%d enabled_ok=%d no_enabled=%d mission_dis=%d cat=%d valid=%d expected=%d",
+                    tostring(Network:is_server()), dbg.total, dbg.enabled_ok, dbg.no_enabled, dbg.mission_dis, dbg.cat, dbg.valid, dbg.expected))
+            end
         end
     end
 

@@ -411,13 +411,21 @@ local function _interact_with_set(hash_set, need_equipment)
         managers.player:set_player_state("clean")
     end
 
+    local orig_base_has_required_upgrade, orig_base_has_required_deployable, orig_base_can_interact
+    local orig_player_remove_equipment, orig_player_remove_special
+
     if need_equipment then
-        CloneClass(BaseInteractionExt)
+        orig_base_has_required_upgrade = BaseInteractionExt._has_required_upgrade
+        orig_base_has_required_deployable = BaseInteractionExt._has_required_deployable
+        orig_base_can_interact = BaseInteractionExt.can_interact
+
         function BaseInteractionExt:_has_required_upgrade() return true end
         function BaseInteractionExt:_has_required_deployable() return true end
         function BaseInteractionExt:can_interact() return true end
 
-        CloneClass(PlayerManager)
+        orig_player_remove_equipment = PlayerManager.remove_equipment
+        orig_player_remove_special = PlayerManager.remove_special
+
         function PlayerManager:remove_equipment() end
         function PlayerManager:remove_special() end
     end
@@ -441,11 +449,11 @@ local function _interact_with_set(hash_set, need_equipment)
     end
 
     if need_equipment then
-        BaseInteractionExt._has_required_upgrade = BaseInteractionExt.orig._has_required_upgrade
-        BaseInteractionExt._has_required_deployable = BaseInteractionExt.orig._has_required_deployable
-        BaseInteractionExt.can_interact = BaseInteractionExt.orig.can_interact
-        PlayerManager.remove_equipment = PlayerManager.orig.remove_equipment
-        PlayerManager.remove_special = PlayerManager.orig.remove_special
+        BaseInteractionExt._has_required_upgrade = orig_base_has_required_upgrade
+        BaseInteractionExt._has_required_deployable = orig_base_has_required_deployable
+        BaseInteractionExt.can_interact = orig_base_can_interact
+        PlayerManager.remove_equipment = orig_player_remove_equipment
+        PlayerManager.remove_special = orig_player_remove_special
     end
 
     if was_mask_off then
@@ -498,13 +506,21 @@ local function interact_with_patterns(patterns, label, need_equipment)
         end
     end
 
+    local orig_base_has_required_upgrade, orig_base_has_required_deployable, orig_base_can_interact
+    local orig_player_remove_equipment, orig_player_remove_special
+
     if need_equipment then
-        CloneClass(BaseInteractionExt)
+        orig_base_has_required_upgrade = BaseInteractionExt._has_required_upgrade
+        orig_base_has_required_deployable = BaseInteractionExt._has_required_deployable
+        orig_base_can_interact = BaseInteractionExt.can_interact
+
         function BaseInteractionExt:_has_required_upgrade() return true end
         function BaseInteractionExt:_has_required_deployable() return true end
         function BaseInteractionExt:can_interact() return true end
 
-        CloneClass(PlayerManager)
+        orig_player_remove_equipment = PlayerManager.remove_equipment
+        orig_player_remove_special = PlayerManager.remove_special
+
         function PlayerManager:remove_equipment() end
         function PlayerManager:remove_special() end
     end
@@ -524,11 +540,11 @@ local function interact_with_patterns(patterns, label, need_equipment)
     end
 
     if need_equipment then
-        BaseInteractionExt._has_required_upgrade = BaseInteractionExt.orig._has_required_upgrade
-        BaseInteractionExt._has_required_deployable = BaseInteractionExt.orig._has_required_deployable
-        BaseInteractionExt.can_interact = BaseInteractionExt.orig.can_interact
-        PlayerManager.remove_equipment = PlayerManager.orig.remove_equipment
-        PlayerManager.remove_special = PlayerManager.orig.remove_special
+        BaseInteractionExt._has_required_upgrade = orig_base_has_required_upgrade
+        BaseInteractionExt._has_required_deployable = orig_base_has_required_deployable
+        BaseInteractionExt.can_interact = orig_base_can_interact
+        PlayerManager.remove_equipment = orig_player_remove_equipment
+        PlayerManager.remove_special = orig_player_remove_special
     end
 
     if was_mask_off then
@@ -662,14 +678,21 @@ local function interact_single_unit(unit)
         managers.player:set_player_state("clean")
     end
 
-    CloneClass(BaseInteractionExt)
+    local orig_base_has_required_upgrade = BaseInteractionExt._has_required_upgrade
+    local orig_base_has_required_deployable = BaseInteractionExt._has_required_deployable
+    local orig_base_interact_blocked = BaseInteractionExt._interact_blocked
+    local orig_base_can_interact = BaseInteractionExt.can_interact
+    local orig_base_can_select = BaseInteractionExt.can_select
+
     function BaseInteractionExt:_has_required_upgrade() return true end
     function BaseInteractionExt:_has_required_deployable() return true end
     function BaseInteractionExt:_interact_blocked() return false end
     function BaseInteractionExt:can_interact() return true end
     function BaseInteractionExt:can_select() return true end
 
-    CloneClass(PlayerManager)
+    local orig_player_remove_equipment = PlayerManager.remove_equipment
+    local orig_player_remove_special = PlayerManager.remove_special
+
     function PlayerManager:remove_equipment() end
     function PlayerManager:remove_special() end
 
@@ -714,13 +737,13 @@ local function interact_single_unit(unit)
         end
     end)
 
-    BaseInteractionExt._has_required_upgrade = BaseInteractionExt.orig._has_required_upgrade
-    BaseInteractionExt._has_required_deployable = BaseInteractionExt.orig._has_required_deployable
-    BaseInteractionExt._interact_blocked = BaseInteractionExt.orig._interact_blocked
-    BaseInteractionExt.can_interact = BaseInteractionExt.orig.can_interact
-    BaseInteractionExt.can_select = BaseInteractionExt.orig.can_select
-    PlayerManager.remove_equipment = PlayerManager.orig.remove_equipment
-    PlayerManager.remove_special = PlayerManager.orig.remove_special
+    BaseInteractionExt._has_required_upgrade = orig_base_has_required_upgrade
+    BaseInteractionExt._has_required_deployable = orig_base_has_required_deployable
+    BaseInteractionExt._interact_blocked = orig_base_interact_blocked
+    BaseInteractionExt.can_interact = orig_base_can_interact
+    BaseInteractionExt.can_select = orig_base_can_select
+    PlayerManager.remove_equipment = orig_player_remove_equipment
+    PlayerManager.remove_special = orig_player_remove_special
 
     if was_mask_off then
         managers.player:set_player_state("mask_off")
